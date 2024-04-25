@@ -1,0 +1,31 @@
+:root {
+    /* Colores primarios */
+    --color-primario: #007bff; /* Azul primario */
+    --color-secundario: #6c757d; /* Gris secundario */
+    --color-destacado: #28a745; /* Verde destacado */
+    --color-amarillo: #ffc107; /* Amarillo */
+    
+    /* Colores de fondo */
+    --color-fondo-claro: #f8f9fa; /* Color de fondo principal  claro */
+    --color-fondo-medio: #9addbe;  /* Color de fondo intermedio */
+    --color-fondo-oscuro: #343a40; /* Color de fondo oscuro */
+    
+    
+    /* Tamaños de fuente */
+    --tamano-fuente-titulo: 24px; /* Tamaño de título principal */
+    --tamano-fuente-subtitulo: 20px; /* Tamaño de subtítulo */
+    --tamano-fuente-parrafo: 16px; /* Tamaño de párrafo normal */
+    --tamano-fuente-enlace: 14px; /* Tamaño de fuente para enlaces */
+    --tamano-fuente-pequena: 10px;
+    
+    /* Espaciados */
+    --espaciado-pequeno: 10px; /* Espaciado pequeño */
+    --espaciado-medio: 20px; /* Espaciado medio */
+    --espaciado-grande: 40px; /* Espaciado grande */
+    
+    /* Márgenes */
+    --margen-superior: 10px; /* Margen superior */
+    --margen-inferior: 10px; /* Margen inferior */
+    --margen-horizontal: 20px; /* Margen horizontal */
+    
+    }

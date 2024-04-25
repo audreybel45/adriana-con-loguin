@@ -1,0 +1,7 @@
+@import "../../styles/theme/variables.css";
+@import "../../styles/layout/structure.css";
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
