@@ -31,12 +31,18 @@ class Punto{
 }
 
 // Funcion para obtener los datos del archivo index-data.json
-function obtenerDatos(){
+function obtenerDatos(filtro){
     fetch(urlApi)
       .then(Response => Response.json())
       .then(data => {
-        // recorremos los datos y creamos los objetos puntos
-        data.forEach(obj => {
+        // filtramos los datos segun lo solicitado en el filtro
+        const datosFiltrados = data.filter(obj => {
+            return obj.titulo.toLowerCase().includes(filtro.toLowerCase()) || obj.descripcion.toLowerCase().includes(filtro.toLowerCase());
+        });
+        // Limpiamos el contenedor
+        document.getElementById('index-contenedor-resultados').innerHTML = '';
+        // recorremos los datos filtrados y creamos los objetos puntos
+        datosFiltrados.forEach(obj => {
             const punto = new Punto(obj.descripcion, obj.titulo, obj.nombreImagen);
             punto.agregarPunto(document.getElementById('index-contenedor-resultados'));
         });
@@ -46,5 +52,12 @@ function obtenerDatos(){
       });
 }
 
-//llamamos a la funcion para obtener datos y mostrarlos en la pagina
-obtenerDatos();
+// controlar el formulario del formulario buscar del Index
+document.getElementById('index-formulario-busqueda').addEventListener('submit',function(event) {
+    event.preventDefault(); // Evitar que el formulario se envie
+    // Obtener los valores a buscar
+    const filtro = document.getElementById('index-input-busqueda').value;
+    // llamamos a la funcion mostrar datos y le pasamos los datos de filtrado
+    obtenerDatos(filtro);
+});
+

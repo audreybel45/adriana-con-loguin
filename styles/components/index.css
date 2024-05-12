@@ -1,0 +1,100 @@
+/* Estilos para pantallas grandes (mayores a 992px) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Estilos para tabletas (entre 768px y 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* Agrega tus estilos para tabletas aquí */
+}
+
+/* Estilos para celulares (menores a 767px) */
+@media only screen and (max-width: 767px) {
+  /* Agrega tus estilos para celulares aquí */
+}
+
+/*
+.index-contenedor-buscador {
+  position: relative;
+  text-align: center;
+  height: 200px;
+  h1,h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+}
+.index-contenedor-fondo { 
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }  
+}
+
+#index-formulario-busqueda {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+*/
+.index-contenedor-buscador {
+    display: flex; /* Convertir el contenedor en un contenedor flex */
+    flex-direction: column; /* Alinear los elementos en columna */
+    justify-content: center; /* Centrar verticalmente los elementos */
+    align-items: center; /* Centrar horizontalmente los elementos */
+    height: 180px; /* Establecer la altura del contenedor para ocupar toda la altura de la ventana */
+    h1{
+        /* font-size: var(--tamano-fuente-24); */
+        font-size: 50px;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Agrega un borde blanco alrededor de las letras */
+    }
+    h3{
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Agrega un borde blanco alrededor de las letras */
+    }
+  }
+  
+  .index-contenedor-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    z-index: -1;
+  }
+  
+  .index-contenedor-fondo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #index-formulario-busqueda {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  h1, h3, #index-formulario-busqueda {
+    margin: 10px 0; /* Añadir un pequeño espacio entre los elementos */
+  }
+
+#index-contenedor-resultados{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.index-punto{
+    width: 300px;
+    
+    img{
+        width: 250px;
+        height: 150px;
+    }
+}
