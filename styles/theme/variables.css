@@ -1,22 +1,33 @@
 :root {
-    /* Colores primarios */
-    --color-primario: #007bff; /* Azul primario */
-    --color-secundario: #6c757d; /* Gris secundario */
-    --color-destacado: #28a745; /* Verde destacado */
-    --color-amarillo: #ffc107; /* Amarillo */
+    /* Colores a usar --- primera paleta */ 
+    --color-azul-marino: #36688D;
+    --color-amarillo-oro: #F3CD05;
+    --color-naranja-dorado: #F49F05;
+    --color-naranja-oscuro: #F18904;
+    --color-marron-grisaceo: #BDA589;
     
-    /* Colores de fondo */
-    --color-fondo-claro: #f8f9fa; /* Color de fondo principal  claro */
-    --color-fondo-medio: #9addbe;  /* Color de fondo intermedio */
-    --color-fondo-oscuro: #343a40; /* Color de fondo oscuro */
+    /* Colores a usar --- Segunda paleta */ 
+
+    --color-azul-brillante: #007bff; 
+    --color-gris-acero: #6c757d; /* Gris secundario */
+    --color-verde-bosque: #28a745; /* Verde destacado */
+    --color-amarillo-brillante: #ffc107; /* Amarillo */
+    
+    /* Colores a usar --- Tercera paleta  paleta */ 
+
+    --color-gris-claro: #f8f9fa; 
+    --color-verde-menta: #9addbe;  
+    --color-gris-pizzara: #343a40; 
     
     
     /* Tamaños de fuente */
-    --tamano-fuente-titulo: 24px; /* Tamaño de título principal */
-    --tamano-fuente-subtitulo: 20px; /* Tamaño de subtítulo */
-    --tamano-fuente-parrafo: 16px; /* Tamaño de párrafo normal */
-    --tamano-fuente-enlace: 14px; /* Tamaño de fuente para enlaces */
-    --tamano-fuente-pequena: 10px;
+    --tamano-fuente-24: 24px; /* Tamaño de título principal */
+    --tamano-fuente-20: 20px; /* Tamaño de subtítulo */
+    --tamano-fuente-16: 16px; /* Tamaño de párrafo normal */
+    --tamano-fuente-14: 14px; /* Tamaño de fuente para enlaces */
+    --tamano-fuente-10: 10px;
+    --tamano-fuente-8: 8px;
+    
     
     /* Espaciados */
     --espaciado-pequeno: 10px; /* Espaciado pequeño */
