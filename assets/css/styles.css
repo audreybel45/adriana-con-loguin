@@ -1,6 +1,7 @@
 @import "../../styles/theme/variables.css";
 @import "../../styles/layout/structure.css";
 @import "../../styles/components/header.css";
+@import "../../styles/components/footer.css";
 @import "../../styles/components/index.css";
 
 body,
