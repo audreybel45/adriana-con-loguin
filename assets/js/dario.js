@@ -94,3 +94,19 @@ function mostrarUsuarios (){
 }
 
 
+// Funcion que sube imagenes a un servidor de Imagenes https://imgbb.com/ key de la pagina fb47470933bd10712434f449f011599a
+// De la url borar el "expiration=600" ya que esto es un indicador de segundos que se almacenara la imagen antes de borrarla si la quitas las imagens quedan almacenadas para siempre dejar solo para pruebas XD
+const uploadToServer = async (e) => {
+    const imageFile = e.target.files[0];
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=fb47470933bd10712434f449f011599a&name=${imageFile.name}`;
+    const data = new FormData();
+    data.append("image", imageFile);
+
+    try {
+        const response = await response.json();
+        setImage(responseData.data.url);
+    }catch (error){
+        console.error("No se puede cargar la imagen",error)
+    }
+}
+
