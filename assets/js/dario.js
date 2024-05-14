@@ -3,10 +3,11 @@ const urlApi = './assets/js/index-data.json';
 
 //Clase Puntos para representar los datos
 class Punto{
-    constructor(descripcion,titulo,nombreImagen){
+    constructor(descripcion,titulo,nombreImagen,ubicacion){
         this.descripcion = descripcion;
         this.titulo = titulo;
         this.nombreImagen = nombreImagen;
+        this.ubicacion = ubicacion;
     }
 
     // metodo para agregar un punto a la pagina
@@ -18,6 +19,8 @@ class Punto{
         elementoTitulo.textContent = this.titulo;
         const elementoDescripcion = document.createElement('p');
         elementoDescripcion.textContent = this.descripcion;
+        const elementoUbicacion = document.createElement('p');
+        elementoUbicacion.textContent = this.ubicacion;
         const elementoImagen = document.createElement('img');
         elementoImagen.src = `./assets/images/${this.nombreImagen}`;
         elementoImagen.alt = this.titulo;
@@ -25,6 +28,7 @@ class Punto{
         contenedorPunto.appendChild(elementoImagen);
         contenedorPunto.appendChild(elementoTitulo);
         contenedorPunto.appendChild(elementoDescripcion);
+        contenedorPunto.appendChild(elementoUbicacion);
         // Agregamos el el div a la pagina
         contenedor.appendChild(contenedorPunto);
     }
@@ -37,13 +41,13 @@ function obtenerDatos(filtro){
       .then(data => {
         // filtramos los datos segun lo solicitado en el filtro
         const datosFiltrados = data.filter(obj => {
-            return obj.titulo.toLowerCase().includes(filtro.toLowerCase()) || obj.descripcion.toLowerCase().includes(filtro.toLowerCase());
+            return obj.titulo.toLowerCase().includes(filtro.toLowerCase()) || obj.descripcion.toLowerCase().includes(filtro.toLowerCase()) || obj.ubicacion.toLowerCase().includes(filtro.toLowerCase());
         });
         // Limpiamos el contenedor
         document.getElementById('index-contenedor-resultados').innerHTML = '';
         // recorremos los datos filtrados y creamos los objetos puntos
         datosFiltrados.forEach(obj => {
-            const punto = new Punto(obj.descripcion, obj.titulo, obj.nombreImagen);
+            const punto = new Punto(obj.descripcion, obj.titulo, obj.nombreImagen,obj.ubicacion);
             punto.agregarPunto(document.getElementById('index-contenedor-resultados'));
         });
       })
