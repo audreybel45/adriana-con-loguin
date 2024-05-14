@@ -1,7 +1,28 @@
 @import "../../styles/theme/variables.css";
 @import "../../styles/layout/structure.css";
+@import "../../styles/components/header.css";
+@import "../../styles/components/footer.css";
+@import "../../styles/components/index.css";
 
-body, html {
-    padding: 0;
-    margin: 0;
+body,
+html {
+  padding: 0;
+  margin: 0;
 }
+
+
+/* Estilos para pantallas grandes (mayores a 992px) */
+@media only screen and (min-width: 992px) {
+    /* Agrega tus estilos para pantallas grandes aquí */
+  }
+  
+  /* Estilos para tabletas (entre 768px y 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Agrega tus estilos para tabletas aquí */
+  }
+  
+  /* Estilos para celulares (menores a 767px) */
+  @media only screen and (max-width: 767px) {
+    /* Agrega tus estilos para celulares aquí */
+  }
+  

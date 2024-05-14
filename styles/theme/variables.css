@@ -1,42 +1,41 @@
 :root {
-    /* Colores a usar --- primera paleta */ 
-    --color-azul-marino: #36688D;
-    --color-amarillo-oro: #F3CD05;
-    --color-naranja-dorado: #F49F05;
-    --color-naranja-oscuro: #F18904;
-    --color-marron-grisaceo: #BDA589;
-    
-    /* Colores a usar --- Segunda paleta */ 
+  /* Colores a usar --- primera paleta */
+  --color-azul-marino: #36688d;
+  --color-amarillo-oro: #f3cd05;
+  --color-naranja-dorado: #f49f05;
+  --color-naranja-oscuro: #f18904;
+  --color-marron-grisaceo: #bda589;
 
-    --color-azul-brillante: #007bff; 
-    --color-gris-acero: #6c757d; /* Gris secundario */
-    --color-verde-bosque: #28a745; /* Verde destacado */
-    --color-amarillo-brillante: #ffc107; /* Amarillo */
-    
-    /* Colores a usar --- Tercera paleta  paleta */ 
+  /* Colores a usar --- Segunda paleta */
 
-    --color-gris-claro: #f8f9fa; 
-    --color-verde-menta: #9addbe;  
-    --color-gris-pizzara: #343a40; 
-    
-    
-    /* Tamaños de fuente */
-    --tamano-fuente-24: 24px; /* Tamaño de título principal */
-    --tamano-fuente-20: 20px; /* Tamaño de subtítulo */
-    --tamano-fuente-16: 16px; /* Tamaño de párrafo normal */
-    --tamano-fuente-14: 14px; /* Tamaño de fuente para enlaces */
-    --tamano-fuente-10: 10px;
-    --tamano-fuente-8: 8px;
-    
-    
-    /* Espaciados */
-    --espaciado-pequeno: 10px; /* Espaciado pequeño */
-    --espaciado-medio: 20px; /* Espaciado medio */
-    --espaciado-grande: 40px; /* Espaciado grande */
-    
-    /* Márgenes */
-    --margen-superior: 10px; /* Margen superior */
-    --margen-inferior: 10px; /* Margen inferior */
-    --margen-horizontal: 20px; /* Margen horizontal */
-    
-    }
+  --color-azul-brillante: #007bff;
+  --color-gris-acero: #6c757d;
+  --color-verde-bosque: #28a745;
+  --color-amarillo-brillante: #ffc107;
+
+  /* Colores a usar --- Tercera paleta  paleta */
+
+  --color-gris-claro: #f8f9fa;
+  --color-verde-menta: #9addbe;
+  --color-gris-pizzara: #343a40;
+
+  /* Tamaños de fuente */
+
+  --tamano-fuente-24: 24px;
+  --tamano-fuente-20: 20px;
+  --tamano-fuente-16: 16px;
+  --tamano-fuente-14: 14px;
+  --tamano-fuente-10: 10px;
+  --tamano-fuente-8: 8px;
+
+  /* Espaciados */
+  --espaciado-pequeno: 5px; /* Espaciado pequeño */
+  --espaciado-medio: 10px; /* Espaciado medio */
+  --espaciado-grande: 20px; /* Espaciado grande */
+  --espaciado-xgrande: 30px; /* Espaciado grande */
+
+  /* Márgenes */
+  --margen-superior: 10px; /* Margen superior */
+  --margen-inferior: 10px; /* Margen inferior */
+  --margen-horizontal: 20px; /* Margen horizontal */
+}

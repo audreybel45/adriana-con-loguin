@@ -1,0 +1,10 @@
+footer{
+    background-color: var(--color-marron-grisaceo);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    li{
+        text-decoration: none;
+        list-style-type: none;
+    }
+}
