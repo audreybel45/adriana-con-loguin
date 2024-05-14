@@ -1,6 +1,7 @@
 // Definir el URL para usar un archivo en formato JSON para los Datos
-const urlApi = './assets/js/index-data.json';
-
+//const urlApi = './assets/js/index-data.json';
+const urlApi = 'https://sheetdb.io/api/v1/tv96lgxabh427'
+                
 //Clase Puntos para representar los datos
 class Punto{
     constructor(descripcion,titulo,nombreImagen,ubicacion){
@@ -63,5 +64,33 @@ document.getElementById('index-formulario-busqueda').addEventListener('submit',f
     const filtro = document.getElementById('index-input-busqueda').value;
     // llamamos a la funcion mostrar datos y le pasamos los datos de filtrado
     obtenerDatos(filtro);
+    mostrarUsuarios();
 });
+
+const urlApiU = 'https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios'
+                
+//Clase Puntos para representar los datos
+class Usuario{
+    constructor(id,nombre,clave,imagen){
+        this.id = id
+        this.nombre = nombre
+        this.clave = clave
+        this.imagen = imagen
+    }
+}
+
+function mostrarUsuarios (){
+    fetch(urlApiU)
+    .then(Response => Response.json())
+    .then(data =>{
+        data.forEach(obj => {
+            const usuario = new Usuario(obj.id,obj.nombre,obj.clave,obj.imagen);
+            console.log(data);
+        });
+    })
+    .catch(error => {
+        console.error('Error al obtener los Usuario ',error);
+    });
+}
+
 
