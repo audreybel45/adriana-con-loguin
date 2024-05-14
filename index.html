@@ -9,7 +9,10 @@
   <body>
     <header>
       <div class="contenedor-imagen-header">
-        <img src="./assets/images/cerrode7colores.jpg" alt="Logo de la Pagina" />
+        <img
+          src="./assets/images/cerrode7colores.jpg"
+          alt="Logo de la Pagina"
+        />
       </div>
       <div class="contenedor-link-header">
         <ul>
@@ -23,26 +26,45 @@
     <main>
       <div class="index-contenedor-buscador">
         <div class="index-contenedor-fondo">
-          <img src="./assets/images/paredonesdeyala.jpg" alt="Imagen de Fondo" />
+          <img
+            src="./assets/images/paredonesdeyala.jpg"
+            alt="Imagen de Fondo"
+          />
         </div>
         <h1>Bienvenidos a ......</h1>
         <h3>Tu mejor destino</h3>
         <!-- Formulario de búsqueda -->
         <form id="index-formulario-busqueda">
-          <input type="text" id="index-input-busqueda"  name="que"   placeholder="¿Qué estás buscando?" />
-          <button type="submit" id="search-button"> <img src="https://www.gstatic.com/images/icons/material/system/1x/search_black_24dp.png" alt="Buscar"/> </button>
+          <input
+            type="text"
+            id="index-input-busqueda"
+            name="que"
+            placeholder="¿Qué estás buscando?"
+          />
+          <button type="submit" id="search-button">
+            <img
+              src="https://www.gstatic.com/images/icons/material/system/1x/search_black_24dp.png"
+              alt="Buscar"
+            />
+          </button>
         </form>
       </div>
-      <div id="index-contenedor-resultados">
-        
-      </div>
+      <div id="index-contenedor-resultados"></div>
     </main>
     <footer>
       <div>
-        <img src="./assets/images/cerrode7colores.jpg" alt="Logo de la pagina">
+        <img
+          src="./assets/images/cerrode7colores.jpg"
+          alt="Logo de la pagina"
+        />
         <form id="form-subscribete">
-          <input type="text" id="text-subscribir"  name="subcribete" placeholder="Correo Electronico"/>
-          <button type="submit" id="search-button"> Subcribirse </button>
+          <input
+            type="text"
+            id="text-subscribir"
+            name="subcribete"
+            placeholder="Correo Electronico"
+          />
+          <button type="submit" id="search-button">Subcribirse</button>
         </form>
       </div>
       <div>
@@ -60,7 +82,9 @@
         </ul>
       </div>
     </footer>
-
+    <input type="file" id="fileInput" />
+    <button onclick="uploadImage()">Subir Imagen</button>
+    <div id="imageContainer"></div>
     <script src="./assets/js/dario.js"></script>
   </body>
 </html>
