@@ -12,50 +12,50 @@
         <!-- <a href="https://ibb.co/8MPLpzp"><img src="https://i.ibb.co/8MPLpzp/imagen.jpg" alt="imagen" border="0"></a> -->
 
         <h2>Registro de Usuario</h2>
-        <form id="registrationForm" enctype="multipart/form-data" onsubmit="metodoDeBusquedaIndex(event)">
+        <form
+          class="registro-formulario"
+          id="formulario-de-registro"
+          enctype="multipart/form-data"
+          onsubmit="metodoEnviarUsuarioNuevo(event)"
+        >
           <div>
             <label for="registro-foto-perfil">Foto de Perfil:</label>
-            <input type="file" id="registro-foto-perfil" name="photo" onchange="cargarImagenPerfil()"/>
-            <img id="registro-foto-actual" src="https://i.ibb.co/8MPLpzp/imagen.jpg" alt="Preview de la imagen" style="max-width: 200px; margin-top: 10px"/>
+            <input
+              type="file"
+              id="registro-foto-perfil"
+              name="photo"
+              onchange="cargarImagenPerfil()"
+            />
+            <img
+              id="registro-foto-actual"
+              src="https://i.ibb.co/8MPLpzp/imagen.jpg"
+              alt="Preview de la imagen"
+              style="max-width: 200px; margin-top: 10px"
+            />
           </div>
           <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input type="text" id="registro-nombre" name="nombre" required />
           </div>
           <div>
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required />
+            <input type="text" id="registro-apellido" name="apellido" required />
           </div>
           <div>
             <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input
-              type="date"
-              id="fechaNacimiento"
-              name="fechaNacimiento"
-              required
-            />
+            <input type="date" id="registro-fecha-nacimiento" name="fechaNacimiento" required />
           </div>
           <div>
             <label for="nombreUsuario">Nombre de Usuario:</label>
-            <input
-              type="text"
-              id="nombreUsuario"
-              name="nombreUsuario"
-              required
-            />
+            <input type="text" id="registro-nombre-usuario" name="nombreUsuario" required />
           </div>
           <div>
             <label for="clave">Clave:</label>
-            <input type="password" id="clave" name="clave" required />
+            <input type="password" id="registro-clave" name="clave" required />
           </div>
           <div>
             <label for="confirmarClave">Confirmar Clave:</label>
-            <input
-              type="password"
-              id="confirmarClave"
-              name="confirmarClave"
-              required
-            />
+            <input type="password" id="registro-confirmar-clave" name="confirmarClave" required />
           </div>
           <div>
             <button type="submit">Registrar</button>
