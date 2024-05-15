@@ -20,6 +20,7 @@
           <li><a href="./pages/turismo.html">Turismo</a></li>
           <li><a href="./pages/guias.html">Guias</a></li>
           <li><a href="./pages/acceder.html">Acceder</a></li>
+          <li><a href="./pages/registrar.html">Registrar</a></li>
         </ul>
       </div>
     </header>
@@ -34,7 +35,7 @@
         <h1>Bienvenidos a ......</h1>
         <h3>Tu mejor destino</h3>
         <!-- Formulario de búsqueda -->
-        <form id="index-formulario-busqueda">
+        <form id="index-formulario-busqueda" onsubmit="metodoDeBusquedaIndex(event)">
           <input
             type="text"
             id="index-input-busqueda"
@@ -53,10 +54,7 @@
     </main>
     <footer>
       <div>
-        <img
-          src="./assets/images/cerrode7colores.jpg"
-          alt="Logo de la pagina"
-        />
+        <img src="https://i.ibb.co/hcxRSj9/Index-png.png" alt="Logo de la pagina" />
         <form id="form-subscribete">
           <input
             type="text"
@@ -82,9 +80,7 @@
         </ul>
       </div>
     </footer>
-    <input type="file" id="fileInput" />
-    <button onclick="uploadImage()">Subir Imagen</button>
-    <div id="imageContainer"></div>
+    
     <script src="./assets/js/dario.js"></script>
   </body>
 </html>
