@@ -1,21 +1,3 @@
-export async function cargarImagenPerfil() {
-  let archivo = document.getElementById("registro-foto-perfil");
-  let foto = document.getElementById("registro-foto-actual");
-  let respuesta = [undefined, undefined, -1];
-  if (archivo.files.length > 0) {
-    respuesta = await subirImagen({ target: { files: [archivo.files[0]] } });
-  }
-  console.log("Respuesta desde el servidor " + respuesta);
-  if (respuesta[2] == true) {
-    _fotoActual = respuesta
-    foto.src = respuesta[1]
-  } else if (respuesta[2] == -1) {
-    _fotoActual = respuesta;
-  } else {
-    _fotoActual = respuesta;
-    foto.src = "https://i.ibb.co/8MPLpzp/imagen.jpg";
-  }
-}
 
 // controlar formulario buscar del Index
 export async function metodoDeBusquedaIndex() {

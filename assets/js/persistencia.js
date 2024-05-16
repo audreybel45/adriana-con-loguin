@@ -1,11 +1,89 @@
+export async function subirPuntoTuristico(punto){
+  try {
+    const url = `https://sheetdb.io/api/v1/tv96lgxabh427`
+    // Creamos un objeto de Datos con los datos del Objeto Punto
+    const datosPunto = {
+      data: {
+        id: "INCREMENT", // Con esto el servidor de SheetDB le asigna un ID automaticamente
+        nombre: punto.nombre,
+        provincia: punto.provincia,
+        pais: punto.pais,
+        descripcion: punto.descripcion,
+        fotourl: punto.fotourl,
+        miniaturaurl: punto.miniaturaurl,
+        hospedajes: punto.hospedajes,
+        transporte: punto.transporte,
+        formas_llegar: punto.formas_llegar
+      },
+    }
+    // Configuramos la solicitud POST
+    const opciones = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(datosPunto),
+    }
+    // Enviamos la solicitud POST
+    const response = await fetch(url,opciones)
+    if (!response.ok){
+      throw new Error("Error al guardar el Punto Turistico")
+    }
+    const data =  await response.json()
+    return true // Si se guardo bien
+  }catch(error) {
+    console.error("Error ", error)
+    return false
+  }
+}
+
+
+
+
 import { Usuario } from "./objetos.js";
+
+
+/**
+ * Funcion que regresa un objeto con los registros que contengan un ID igual al pasado si por casualidad se crearn mas de 1 regresara todos pero solo mostrara el primero
+ * @param {*} id 
+ * @returns 
+ */
+export async function consultarUsuario(id){
+  let resp = new Usuario;
+  const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?id=${id}&sheet=usuarios` 
+  const respuesta = await fetch(url)
+  if (respuesta.ok) {
+    const data = await respuesta.json()
+    if (data && data.length > 0) {
+      data.forEach(item => {
+        const usuario = new Usuario(
+          item.id,
+          item.nombre,
+          item.apellido,
+          item.fechaNacimiento,
+          item.usuario,
+          item.clave,
+          item.foto,
+          item.fotoMiniatura
+        )
+        resp = (usuario)
+      })
+      return resp
+    }else{
+      return []
+    }
+  }else{
+    // Si la respuesta del servidor no fue exitosa, lanzar un error o manejarlo según sea necesario
+    throw new Error("Error al obtener los datos de los usuarios")
+  }
+}
+
+
 
 /**
  *
  * @param {} id numerico
  * @id es el numero de usario de no tener -1 en dicho id se traeran todos
  */
-export async function consultarUsaurios() {
+export async function listarUsaurios() {
   let listaUsuarios = []
   const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios"
   const respuesta = await fetch(url)
@@ -85,9 +163,12 @@ export async function crearUsuario(usuario) {
 // Funcion para obtener los datos de la Api SheetDB
 // Definir el URL para usar un archivo en formato JSON para los Datos
 //const urlApi = './assets/js/index-data.json';
+// y en filtro se envian las palabras que queremos filtrar de la busqueda
+
+import { Punto } from "./objetos.js";
 
 export async function obtenerDatos(filtro) {
-  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427"; // Direccion para almacenr el Mismo
+  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427"; // Direccion para consultar el primer libro que tenga el endpoint
   return fetch(urlApi)
     .then((Response) => Response.json())
     .then((data) => {
@@ -99,6 +180,7 @@ export async function obtenerDatos(filtro) {
           obj.ubicacion.toLowerCase().includes(filtro.toLowerCase())
         );
       });
+      console.log(datosFiltrados)
       return datosFiltrados;
     })
     .catch((error) => {
@@ -121,10 +203,10 @@ export async function subirImagen(archivo) {
       body: data,
     });
     const datosregresados = await respuesta.json();
-    console.log("Datos de Respuesta " + datosregresados);
-    console.log("URL " + datosregresados.data.url);
-    console.log("Miniatura " + datosregresados.data.thumb.url);
-    console.log("Estado " + datosregresados.success);
+    //console.log("Datos de Respuesta " + datosregresados);
+    //console.log("URL " + datosregresados.data.url);
+    //console.log("Miniatura " + datosregresados.data.thumb.url);
+    //console.log("Estado " + datosregresados.success);
     return [datosregresados.data.url, datosregresados.data.thumb.url, datosregresados.success];
   } catch (error) {
     console.error(error);

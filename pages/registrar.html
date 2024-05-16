@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/index.js" type="module"></script> 
     <title>Alta de Usuario Nuevo</title>
   </head>
   <body>
@@ -16,7 +17,6 @@
           class="registro-formulario"
           id="formulario-de-registro"
           enctype="multipart/form-data"
-          onsubmit="metodoEnviarUsuarioNuevo(event)"
         >
           <div>
             <label for="registro-foto-perfil">Foto de Perfil:</label>
@@ -24,7 +24,6 @@
               type="file"
               id="registro-foto-perfil"
               name="photo"
-              onchange="cargarImagenPerfil()"
             />
             <img
               id="registro-foto-actual"
@@ -63,6 +62,6 @@
         </form>
       </div>
     </main>
-    <script src="../assets/js/dario.js"></script>
+    <!-- <script src="../assets/js/dario.js"></script> -->
   </body>
 </html>
