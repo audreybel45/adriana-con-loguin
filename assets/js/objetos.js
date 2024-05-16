@@ -33,8 +33,21 @@ export class Punto {
   }
 
 // Usuario de la pagina y sus metodos
+/**
+ * @id Numerico
+ * @nombre 
+ * @apellido
+ * @fechaNacimiento  campo fecha
+ * @usuario 
+ * @clave
+ * @foto
+ * @fotoMiniatura
+ * 
+ * estructura de la clase Usuario
+ */
 export class Usuario {
-    constructor (nombre,apellido,fechaNacimiento,usuario,clave,foto,fotoMiniatura){
+    constructor (id,nombre,apellido,fechaNacimiento,usuario,clave,foto,fotoMiniatura){
+      this.id = id
       this.nombre = nombre
       this.apellido = apellido
       this.fechaNacimiento = fechaNacimiento
@@ -57,3 +70,4 @@ export class Usuario {
       return edad;
     }
   }
+

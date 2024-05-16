@@ -1,3 +1,87 @@
+import { Usuario } from "./objetos.js";
+
+/**
+ *
+ * @param {} id numerico
+ * @id es el numero de usario de no tener -1 en dicho id se traeran todos
+ */
+export async function consultarUsaurios() {
+  let listaUsuarios = []
+  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios"
+  const respuesta = await fetch(url)
+  if (respuesta.ok) {
+    const data = await respuesta.json()
+    if (data && data.length > 0) {
+      data.forEach(item => {
+        const usuario = new Usuario(
+          item.id,
+          item.nombre,
+          item.apellido,
+          item.fechaNacimiento,
+          item.usuario,
+          item.clave,
+          item.foto,
+          item.fotoMiniatura
+        )
+        listaUsuarios.push(usuario)
+      })
+      return listaUsuarios
+    }else{
+      return []
+    }
+  }else{
+    // Si la respuesta del servidor no fue exitosa, lanzar un error o manejarlo según sea necesario
+    throw new Error("Error al obtener los datos de los usuarios")
+  }
+}
+
+// datosFiltrados.forEach((obj) => {
+//   const punto = new Punto(obj.descripcion, obj.titulo, obj.nombreImagen, obj.ubicacion);
+//   punto.agregarPunto(document.getElementById("index-contenedor-resultados"));
+
+/**
+ * @param {*} usuario Clase Usuario
+ *
+ * para ser almacenada en el servidor SheetDB
+ */
+export async function crearUsuario(usuario) {
+  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios";
+  // Cremos un objeto con los datos del usuario
+  const datosUsuario = {
+    data: {
+      id: "INCREMENT",
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      fechaNacimiento: usuario.fechaNacimiento,
+      usuario: usuario.usuario,
+      clave: usuario.clave,
+      foto: usuario.foto,
+      fotoMiniatura: usuario.fotoMiniatura,
+    },
+  };
+  // configuramos la solicitud POST
+  const opciones = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datosUsuario),
+  };
+  // Enviamos la solicitud POST
+  fetch(url, opciones)
+    .then(async (response) => {
+      if (!response.ok) {
+        throw new Error("Error al guardar el usuario");
+      }
+      return await response.json();
+    })
+    .then((data) => {
+      console.log("Usuario Guardado Existosamente: ", data);
+    })
+    .catch((error) => {
+      console.error("Error ", error);
+    });
+}
+
+/********************************************************************/
 // Funcion para obtener los datos de la Api SheetDB
 // Definir el URL para usar un archivo en formato JSON para los Datos
 //const urlApi = './assets/js/index-data.json';
@@ -15,7 +99,7 @@ export async function obtenerDatos(filtro) {
           obj.ubicacion.toLowerCase().includes(filtro.toLowerCase())
         );
       });
-      return datosFiltrados
+      return datosFiltrados;
     })
     .catch((error) => {
       console.error("Error al obtener los datos", error);
@@ -24,7 +108,7 @@ export async function obtenerDatos(filtro) {
 
 // Funcion que sube imagenes a un servidor de Imagenes https://imgbb.com/ key de la pagina fb47470933bd10712434f449f011599a
 // De la url borar el "expiration=600" ya que esto es un indicador de segundos que se almacenara la imagen antes de borrarla si la quitas las imagens quedan almacenadas para siempre dejar solo para pruebas XD
-export async function subirImagen(archivo){
+export async function subirImagen(archivo) {
   const archivoImagen = archivo.target.files[0];
   const nombreArchivo = archivoImagen.name;
   const nombreSinExtension = nombreArchivo.replace(/\.[^/.]+$/, "");
@@ -45,41 +129,4 @@ export async function subirImagen(archivo){
   } catch (error) {
     console.error(error);
   }
-};
-
-// Manejar los datos del furmulario para ser usados cargar el registro
-export function crearUsuario(usuario) {
-  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios";
-  // Cremos un objeto con los datos del usuario
-  const datosUsuario = {
-    data: {
-      nombre: usuario.nombre,
-      apellido: usuario.apellido,
-      fechaNacimiento: usuario.fechaNacimiento,
-      usuario: usuario.usuario,
-      clave: usuario.clave,
-      foto: usuario.foto,
-      fotoMiniatura: usuario.fotoMiniatura,
-    },
-  };
-  // configuramos la solicitud POST
-  const opciones = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(datosUsuario),
-  };
-  // Enviamos la solicitud POST
-  fetch(url, opciones)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error al guardar el usuario");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Usuario Guardado Existosamente: ", data);
-    })
-    .catch((error) => {
-      console.error("Error ", error);
-    });
 }
