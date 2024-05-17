@@ -8,8 +8,7 @@ function guardarDatos() {
     var provincia = document.getElementById('provincia').value;
     var pais = document.getElementById('pais').value;
     var descripcion = document.getElementById('descripcion').value;
-    var fotoInput = document.getElementById('foto'); // Input de la foto
-    var foto = fotoInput.files[0]; // Obtener el archivo de la foto seleccionada
+    var foto = document.getElementById('foto').value; // Aquí obtenemos el nombre del archivo, no la foto en sí, por razones de seguridad
     var hospedajes = document.getElementById('hospedajes').value;
     var transporte = document.getElementById('transporte').value;
     var formas_llegar = document.getElementById('formas_llegar').value;
@@ -20,7 +19,7 @@ function guardarDatos() {
         "provincia": provincia,
         "pais": pais,
         "descripcion": descripcion,
-        "foto": foto.name, // Guardar solo el nombre del archivo
+        "foto": foto,
         "hospedajes": hospedajes,
         "transporte": transporte,
         "formas_llegar": formas_llegar
