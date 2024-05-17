@@ -167,20 +167,22 @@ export async function crearUsuario(usuario) {
 
 import { Punto } from "./objetos.js";
 
-export async function obtenerDatos(filtro) {
+export async function bajarPuntos(filtro) {
   const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427"; // Direccion para consultar el primer libro que tenga el endpoint
   return fetch(urlApi)
     .then((Response) => Response.json())
     .then((data) => {
       // filtramos los datos segun lo solicitado en el filtro
+      
       const datosFiltrados = data.filter((obj) => {
         return (
-          obj.titulo.toLowerCase().includes(filtro.toLowerCase()) ||
+          obj.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
+          obj.provincia.toLowerCase().includes(filtro.toLowerCase()) ||
+          obj.pais.toLowerCase().includes(filtro.toLowerCase()) ||
           obj.descripcion.toLowerCase().includes(filtro.toLowerCase()) ||
-          obj.ubicacion.toLowerCase().includes(filtro.toLowerCase())
+          obj.hospedajes.toLowerCase().includes(filtro.toLowerCase()) 
         );
       });
-      console.log(datosFiltrados)
       return datosFiltrados;
     })
     .catch((error) => {
@@ -194,7 +196,7 @@ export async function subirImagen(archivo) {
   const archivoImagen = archivo.target.files[0];
   const nombreArchivo = archivoImagen.name;
   const nombreSinExtension = nombreArchivo.replace(/\.[^/.]+$/, "");
-  const url = `https://api.imgbb.com/1/upload?expiration=600&key=fb47470933bd10712434f449f011599a&name=${nombreSinExtension}`;
+  const url = `https://api.imgbb.com/1/upload?key=fb47470933bd10712434f449f011599a&name=${nombreSinExtension}`;
   const data = new FormData();
   data.append("image", archivoImagen);
   try {

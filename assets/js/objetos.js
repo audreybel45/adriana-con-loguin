@@ -40,7 +40,8 @@ export class Punto {
       elementoHospedajes.textContent = "Hospedajes: " + this.hospedajes;
 
       const elementoImagen = document.createElement("img");
-      elementoImagen.src = `./assets/images/${this.miniaturaurl}`;
+      elementoImagen.src = this.miniaturaurl;
+      console.log("ruta a la miniatura", this.miniaturaurl)
       
       // agregamos al div los elemento
       contenedorPunto.appendChild(elementoImagen);
