@@ -168,6 +168,50 @@ export async function crearUsuario(usuario) {
 import { Punto } from "./objetos.js";
 
 export async function bajarPuntos(filtro) {
+  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or";
+  const queryParams = [
+    `nombre=*${encodeURIComponent(filtro)}*`,
+    `provincia=*${encodeURIComponent(filtro)}*`,
+    `pais=*${encodeURIComponent(filtro)}*`,
+    `descripcion=*${encodeURIComponent(filtro)}*`,
+    `hospedajes=*${encodeURIComponent(filtro)}*`
+  ].join("&");
+
+  const response = await fetch(`${urlApi}?${queryParams}`);
+  if (!response.ok) {
+    throw new Error("Error al obtener los datos");
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+/*
+export async function bajarPuntos(filtro) {
+  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or";
+  const palabrasFiltro = filtro.toLowerCase().trim().split(/\s+/); // Dividir el filtro en palabras individuales
+  const queryParams = palabrasFiltro.map(palabra => {
+    return [
+      `nombre=*${encodeURIComponent(palabra)}*`,
+      `provincia=*${encodeURIComponent(palabra)}*`,
+      `pais=*${encodeURIComponent(palabra)}*`,
+      `descripcion=*${encodeURIComponent(palabra)}*`,
+      `hospedajes=*${encodeURIComponent(palabra)}*`
+    ].join("&");
+  }).join("&");
+
+  const response = await fetch(`${urlApi}?${queryParams}`);
+  if (!response.ok) {
+    throw new Error("Error al obtener los datos");
+  }
+
+  const data = await response.json();
+  return data;
+}
+*/
+
+/*
+export async function bajarPuntos(filtro) {
   const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427"; // Direccion para consultar el primer libro que tenga el endpoint
   return fetch(urlApi)
     .then((Response) => Response.json())
@@ -189,6 +233,7 @@ export async function bajarPuntos(filtro) {
       console.error("Error al obtener los datos", error);
     });
 }
+*/
 
 // Funcion que sube imagenes a un servidor de Imagenes https://imgbb.com/ key de la pagina fb47470933bd10712434f449f011599a
 // De la url borar el "expiration=600" ya que esto es un indicador de segundos que se almacenara la imagen antes de borrarla si la quitas las imagens quedan almacenadas para siempre dejar solo para pruebas XD
@@ -212,5 +257,58 @@ export async function subirImagen(archivo) {
     return [datosregresados.data.url, datosregresados.data.thumb.url, datosregresados.success];
   } catch (error) {
     console.error(error);
+  }
+}
+
+
+// ENVIAR NUEVO SUBSCRIPTOR
+
+export async function subirSuscriptor(correo) {
+  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=suscripcion";
+  // Cremos un objeto con los datos del usuario
+  const datos = {
+    data: {
+      id: "INCREMENT",
+      correo: correo,
+      fecha: new Date,
+    },
+  };
+  // configuramos la solicitud POST
+  const opciones = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos),
+  };
+  // Enviamos la solicitud POST
+  try{
+    const response = await fetch(url,opciones)
+    if (!response.ok){
+      throw new Error("Error al guardar el usaurio ", data)
+    }
+    console.log("Subida ",true)
+    return true
+  }catch (error) {
+    console.error("Error ", error)
+    console.log("Subida ",false)
+    return false
+  }
+}
+
+// CONSULTANDO  SUBSCRIPTOR
+
+export async function consultarSuscriptor(correo) {
+  const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?correo=${correo}&sheet=suscripcion`;
+  try{
+    const response = await fetch(url)
+    const data = await response.json()
+    // Verificamos si hay algun resultado
+    if (data && data.length > 0){
+      return true
+    }else{
+      return false
+    }
+  }catch (error){
+    console.error("Error al cosultar un suscrptor ", error)
+    return false
   }
 }

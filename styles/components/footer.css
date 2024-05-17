@@ -22,10 +22,21 @@ footer li{
     align-items: center;
 
 }
+
 .footer-primer-contenedor img {
     width: 150px;
     height: 60px;
     margin-bottom: 10px;
+}
+
+.footer-primer-contenedor input {
+    width: 250px;
+    font-size: 16px;
+}
+
+.footer-primer-contenedor button {
+    width: 100px;
+    font-size: 16px;
 }
 
 .footer-segundo-contenedor{

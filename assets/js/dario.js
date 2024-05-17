@@ -1,32 +1,7 @@
 import { bajarPuntos } from "./persistencia.js";
 import { Punto } from "./objetos.js";
 
-export async function consultarPuntos() {
-  console.log("Se ingreso a la consultarPuntos");
-  let filtro = document.getElementById("index-input-busqueda").value;
-  try {
-    const listaPuntos = await bajarPuntos(filtro);
-    // Limpiamos el contenedor
-    document.getElementById("index-contenedor-resultados").innerHTML = "";
-    listaPuntos.forEach((obj) => {
-      const punto = new Punto(
-        obj.id,
-        obj.nombre,
-        obj.provincia,
-        obj.pais,
-        obj.descripcion,
-        obj.fotourl,
-        obj.miniaturaurl,
-        obj.hospedajes,
-        obj.transporte,
-        obj.formas_llegar
-      );
-      punto.agregarPunto(document.getElementById("index-contenedor-resultados"));
-    });
-  } catch (error) {
-    console.error("Error al consultar los puntos: ", error);
-  }
-}
+
 
 //// METODOS VIEJOS QUE TENGO QUE RECONVERTIR A LA NUEVA EDUCACION
 
