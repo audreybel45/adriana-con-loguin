@@ -43,7 +43,10 @@
 }
 
 */
-
+.index-main {
+  height: auto;
+  
+}
 
 .index-contenedor-buscador {
     display: flex; /* Convertir el contenedor en un contenedor flex */
@@ -108,8 +111,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-amarillo-oro);  
+  background-color: var(--color-naranja-oscuro);  
   margin-top: 10px;
+  margin-bottom: 15px;
   padding: 5px;
   margin-left: 5px;
   margin-right: 5px; 
@@ -121,6 +125,7 @@
   img{
     width: 100%;
     max-height: 150px;
+    max-width: 200px;
     object-fit: fill;
     border-radius: 8px;
     /* height: 25%; */

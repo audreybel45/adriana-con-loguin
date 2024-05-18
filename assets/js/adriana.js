@@ -15,6 +15,7 @@ function guardarDatos() {
 
     // Crear un objeto con los datos del formulario
     const nuevoSitio = {
+        
         "nombre": nombre,
         "provincia": provincia,
         "pais": pais,
