@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/header.js" defer></script> <!-- Script para cargar el header -->
+    <title>Acceder</title>
+  </head>
+  <body>
+    <header>
+      <div class="contenedor-imagen-header">
+        <img src="../assets/images/cerrode7colores.jpg" alt="Logo de la Pagina" />
+      </div>
+      <div class="contenedor-link-header">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./turismo.html">Cuentanos!</a></li>
+          <li><a href="./guias.html">Guias</a></li>
+          <li><a href="./acceder.html">Acceder</a></li>
+          <li><a href="./registrar.html">Registrar</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="acceder-contenedor-formulario">
+        <form class="acceder-formulario" id="formulario-de-acceso">
+          <h2>Acceder</h2>
+          <div class="input-formulario">
+            <input type="text" id="acceder-usuario" name="usuario" required />
+            <label for="acceder-usuario">Nombre de Usuario:</label>
+          </div>
+          <div class="input-formulario">
+            <input type="password" id="acceder-clave" name="clave" required />
+            <label for="acceder-clave">Clave:</label>
+          </div>
+          <div class="formulario-boton-acciones">
+            <button class="botones-formularios" type="button" id="acceder-boton">Acceder</button>
+            <a href="./registrar.html">Registrar</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-primer-contenedor">
+        <img src="https://i.ibb.co/hcxRSj9/Index-png.png" alt="Logo de la pagina" />
+        <form id="form-subscribete">
+          <input
+            type="email"
+            id="footer-text-subscribir"
+            name="subcribete"
+            placeholder="Correo Electronico"
+            required
+          />
+          <button type="button" id="footer-boton-suscriptor">Subcribirse</button>
+        </form>
+      </div>
+      <div class="footer-segundo-contenedor">
+        <h4>Contacto</h4>
+        <ul class="footer-contacto">
+          <li>WhatsApp: +543885273263</li>
+          <li>Correo: bdidominguez@gmail.com</li>
+        </ul>
+        <h4>Redes Sociales</h4>
+        <ul class="footer-redes-sociales">
+          <li>LinkedIn</li>
+          <li>YouTube</li>
+          <li>Facebook</li>
+          <li>Instagram</li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../assets/js/acceder.js" defer></script>
+  </body>
+</html>

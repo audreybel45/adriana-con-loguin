@@ -1,85 +1,45 @@
 /* Estilos para pantallas grandes (mayores a 992px) */
 @media only screen and (min-width: 992px) {
+  /* Estilos para el header */
   header {
     background-color: var(--color-azul-marino);
     display: flex;
+    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 0 20px; /* Agregar un relleno a los lados */
   }
 
+  /* Estilos para el contenedor de la imagen */
   .contenedor-imagen-header {
     height: 60px;
-    img {
-      width: 200px;
-      height: 100%;
-    }
-  }
-  .contenedor-link-header {
-    width: 100%;
   }
 
+  /* Estilos para la imagen del logo */
+  .contenedor-imagen-header img {
+    width: 200px;
+    height: 100%;
+  }
+
+  /* Estilos para la lista de enlaces */
   .contenedor-link-header ul {
     display: flex;
-    justify-content: space-around;
     list-style-type: none;
-    a {
-      text-decoration: none;
-      color: black;
-      font-size: var(--tamano-fuente-24);
-    }
-  }
-}
-
-/* Estilos para tabletas (entre 768px y 991px) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  header {
-    background-color: var(--color-azul-marino);
-    display: flex;
-  }
-  .contenedor-imagen-header {
-    height: 60px;
-    img {
-      width: 130px;
-      height: 100%;
-    }
   }
 
-  .contenedor-link-header {
-    width: 100%;
+  /* Estilos para los elementos de la lista de enlaces */
+  .contenedor-link-header ul li {
+    margin-right: 30px; /* Espacio entre elementos */
   }
 
-  .contenedor-link-header ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    a {
-      text-decoration: none;
-      color: black;
-      font-size: var(--tamano-fuente-20);
-    }
-  }
-}
-
-/* Estilos para celulares (menores a 767px) */
-@media only screen and (max-width: 767px) {
-  .contenedor-imagen-header {
-    display: none;
-  }
-  header {
-    background-color: var(--color-azul-marino);
-    display: flex;
+  /* Estilos para el último elemento de la lista de enlaces */
+  .contenedor-link-header ul li:last-child {
+    margin-right: 0; /* Eliminar margen del último elemento */
   }
 
-  .contenedor-link-header {
-    width: 100%;
-  }
-
-  .contenedor-link-header ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    a {
-      text-decoration: none;
-      color: black;
-      font-size: var(--tamano-fuente-16);
-    }
+  /* Estilos para los enlaces */
+  .contenedor-link-header ul li a {
+    text-decoration: none;
+    color: black; /* Cambiar el color del texto a negro */
+    font-size: var(--tamano-fuente-24);
   }
 }

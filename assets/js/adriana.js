@@ -164,6 +164,17 @@ async function guardarDatos() {
 }
   
 document.addEventListener("DOMContentLoaded", function() {
+    // Verificar si el usuario está logueado
+    //const formularioContainer = document.getElementById('formulario-container');
+    //const accessDeniedMessage = document.getElementById('access-denied-message');
+    //const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado')); // Verificar si el usuario está logueado
+
+    // Mostrar el formulario o el mensaje de acceso denegado
+    //if (usuarioLogueado) {
+        formularioContainer.style.display = 'block';
+    //} else {
+    //    accessDeniedMessage.style.display = 'block';
+    //}
     // Función para manejar la vista previa de la imagen seleccionada
     document.getElementById("foto").addEventListener("change", e => {
         const elementoImagen = document.getElementById("registrar-foto-actual");

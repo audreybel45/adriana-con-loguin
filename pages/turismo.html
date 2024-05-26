@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contanos tu experiencia</title>
     <link rel="stylesheet" href="../assets/css/styles.css"> <!-- Enlace al CSS específico de turismo.html -->
+    <script src="../assets/js/header.js" defer></script> <!-- Script para cargar el header -->
 </head>
 <body>
+  <header></header> <!-- El contenido del header se cargará aquí -->
     <div class="container">
         <h1>Contanos tu experiencia</h1>
+
+        <!-- Contenedor para el formulario -->
+      <!--<div id="formulario-container" style="display: none;"> -->
         <form id="formulario">
             <label for="nombre">Nombre del Sitio:</label>
             <input type="text" id="nombre" required>
@@ -37,6 +42,13 @@
             <button type="button" id="guardarDatos">Guardar Datos</button>
         </form>
 
+      </div>
+
+      <!-- Contenedor para mensaje de acceso denegado -->
+    <!--  <div id="access-denied-message" style="display: none;">
+        <p>Acceso denegado. Por favor, <a href="./acceder.html">inicie sesión</a> para agregar información.</p>
+    </div>-->
+      
         <!-- Contenedor para mostrar los puntos turísticos -->
         <div id="contenedor-puntos"></div>
     </div>
