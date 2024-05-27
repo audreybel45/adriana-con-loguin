@@ -171,25 +171,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Mostrar el formulario o el mensaje de acceso denegado
     //if (usuarioLogueado) {
-        formularioContainer.style.display = 'block';
+        //formularioContainer.style.display = 'block';
     //} else {
     //    accessDeniedMessage.style.display = 'block';
     //}
     // Función para manejar la vista previa de la imagen seleccionada
-    document.getElementById("foto").addEventListener("change", e => {
-        const elementoImagen = document.getElementById("registrar-foto-actual");
+    // document.getElementById("foto").addEventListener("change", e => {
+    //     const elementoImagen = document.getElementById("registrar-foto-actual");
   
-        if (e.target.files[0]) { // Si existe algún archivo, regresa true
-            const lector = new FileReader();
-            lector.onload = function(evento) {
-                elementoImagen.src = evento.target.result;
-            };
+    //     if (e.target.files[0]) { // Si existe algún archivo, regresa true
+    //         const lector = new FileReader();
+    //         lector.onload = function(evento) {
+    //             elementoImagen.src = evento.target.result;
+    //         };
     
-            lector.readAsDataURL(e.target.files[0]);
-        } else {
-            elementoImagen.src = "https://i.ibb.co/8MPLpzp/imagen.jpg";
-        }
-    });
+    //         lector.readAsDataURL(e.target.files[0]);
+    //     } else {
+    //         elementoImagen.src = "https://i.ibb.co/8MPLpzp/imagen.jpg";
+    //     }
+    // });
     
     // Agregar evento click al botón "Guardar Datos"
     document.getElementById("guardarDatos").addEventListener("click", guardarDatos);
