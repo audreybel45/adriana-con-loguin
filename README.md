@@ -1,3 +1,4 @@
+<img src="./assets/images/icon/logo.png" alt="Logo de la Pagina">
 <h1>EL Mundo Nomada</h1>
 <p>Pagina para que nos cuentes de esos lugares turisticos y los no tan conocidos para que el resto del mundo tambien pueda verlos, tine buscador de sitios, una pagina para cargar 1 foto y los datos sobre el lugar que nos quieras compartir</p>
 <h3>Como esta dispuesta la pagina</h3>
