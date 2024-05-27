@@ -6,7 +6,8 @@ import {
   subirUsuario,
   animacionBotonCarga,
   animacionCursoCarga,
-  miMensaje
+  miMensaje,
+  cargarSuscriptor
 } from "./persistencia.js";
 import { Usuario } from "./objetos.js";
 
@@ -87,44 +88,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // SECCION DEL SUSCRIBIR CARGA Y CONTROL
-  const btSuscrptor = "footer-boton-suscriptor";
   // ESCUCHAMOS AL BOTON SUSCRIBIR Y LLAMAMOS A LA FUNCION DE CARGA
-  document.getElementById(btSuscrptor).addEventListener("click", () => cargarSuscriptor());
-
+  document.getElementById("footer-boton-suscriptor").addEventListener("click", () => {
+    const correo = document.getElementById("footer-text-subscribir").value
+    //console.log("Probando", correo)
+    cargarSuscriptor(correo)
+  });
   // ESCUCHAMOS AL INPUT POR SI ALGUINE PRECIONA ENTER QUE EJECUTE LA FUNCION DE CARGA
   document.getElementById("footer-text-subscribir").addEventListener("keydown", function (event) {
     // Verificar si la tecla presionada es Enter
     if (event.key === "Enter") {
       // Detener la propagación del evento para evitar el envío del formulario
       event.preventDefault();
-      cargarSuscriptor();
+      const correo = document.getElementById("footer-text-subscribir").value
+      cargarSuscriptor(correo);
     }
   });
 
-  // FUNCION DE CARGA DEL CORREO
-  async function cargarSuscriptor() {
-    let correo = document.getElementById("footer-text-subscribir").value;
-    let re = /\S+@\S+\.\S+/; // Explecion regular para validar el correo no se como funciona Todavia XD
-    if (re.test(correo)) {
-      // regresa true si es correo sino regresa false
-      // COMPROBAR QUE EL CORREO NO EXISTE
-      let existe = await consultarSuscriptor(correo);
-      if (existe) {
-        miMensaje("Ese DNI ya Existe","paraaaaaa ansioooosooo  ya estas suscripto!!! -- Gracias por elegirnos",3);
-      } else {
-        // CARGAMOS EL CORREO AL ENDPOINT
-        let respuesta = subirSuscriptor(correo);
-        if (respuesta) {
-          miMensaje("Gracias por suscribirte","Informacio",3);
-          document.getElementById("footer-text-subscribir").value = "";
-        }
-      }
-    } else {
-      miMensaje("Ese correo ya fue cargado.","Advertencia",3);
-      document.getElementById("footer-text-subscribir").select();
-    }
-  }
+  // // FUNCION DE CARGA DEL CORREO
+  // async function cargarSuscriptor() {
+  //   let correo = document.getElementById("footer-text-subscribir").value;
+  //   let re = /\S+@\S+\.\S+/; // Explecion regular para validar el correo no se como funciona Todavia XD
+  //   if (re.test(correo)) {
+  //     // regresa true si es correo sino regresa false
+  //     // COMPROBAR QUE EL CORREO NO EXISTE
+  //     let existe = await consultarSuscriptor(correo);
+  //     if (existe) {
+  //       miMensaje("Ese DNI ya Existe","paraaaaaa ansioooosooo  ya estas suscripto!!! -- Gracias por elegirnos",3);
+  //     } else {
+  //       // CARGAMOS EL CORREO AL ENDPOINT
+  //       let respuesta = subirSuscriptor(correo);
+  //       if (respuesta) {
+  //         miMensaje("Gracias por suscribirte","Informacio",3);
+  //         document.getElementById("footer-text-subscribir").value = "";
+  //       }
+  //     }
+  //   } else {
+  //     miMensaje("Ese correo ya fue cargado.","Advertencia",3);
+  //     document.getElementById("footer-text-subscribir").select();
+  //   }
+  // }
 
   
 

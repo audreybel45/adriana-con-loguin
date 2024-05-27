@@ -325,13 +325,13 @@ export async function subirSuscriptor(correo) {
   try{
     const response = await fetch(url,opciones)
     if (!response.ok){
-      throw new Error("Error al guardar el usaurio ", data)
+      throw new Error("Error al guardar el suscriptor ", data)
     }
-    console.log("Subida ",true)
+    //console.log("Subida ",true)
     return true
   }catch (error) {
     console.error("Error ", error)
-    console.log("Subida ",false)
+    console.log("Subida Suscriptor ",false)
     return false
   }
 }
@@ -415,3 +415,29 @@ export async function consultarSuscriptor(correo) {
           hoja.removeChild(contenedor);
       }, tiempo * 1000);
     }
+
+    // FUNCION DE CARGA DEL CORREO
+export async function cargarSuscriptor(correo) {
+  let re = /\S+@\S+\.\S+/; // Explecion regular para validar el correo no se como funciona Todavia XD
+  if (re.test(correo)) {
+    // regresa true si es correo sino regresa false
+    // COMPROBAR QUE EL CORREO NO EXISTE
+    let existe = await consultarSuscriptor(correo);
+    if (existe) {
+      miMensaje("paraaaaaa ansioooosooo  ya estas suscripto!!! -- Gracias por elegirnos","Advertencia",4)
+      //alert("paraaaaaa ansioooosooo  ya estas suscripto!!! -- Gracias por elegirnos");
+    } else {
+      // CARGAMOS EL CORREO AL ENDPOINT
+      let respuesta = subirSuscriptor(correo);
+      if (respuesta) {
+        miMensaje("Gracias por suscribirte!","Informacion",4)
+        //alert("Gracias por suscribirte!!");
+        document.getElementById("footer-text-subscribir").value = ''
+      }
+    }
+  } else {
+    miMensaje("Correo no Valido!","Advertencia",3)
+    //alert("Correo no Valido");
+    //document.getElementById(nombreElemento).select();
+  }
+}

@@ -1,116 +1,15 @@
 //import { Punto } from "./datos.js";
 //import { subirImagen, subirPuntoTuristico } from "./datos.js";
-
+import { cargarSuscriptor, subirImagen, subirPuntoTuristico, animacionBotonCarga} from "./persistencia.js";
+import {Punto } from "./objetos.js";
 // comente los import y puse las funciones que necesitaba ademas de las que cree  dentro de mi script porque con el import no las tomaba
 
-// Constructor de Punto
-function Punto(id, nombre, provincia, pais, descripcion, fotourl, miniaturaurl, hospedajes, transporte, formas_llegar) {
-    this.id = id;
-    this.nombre = nombre;
-    this.provincia = provincia;
-    this.pais = pais;
-    this.descripcion = descripcion;
-    this.fotourl = fotourl;
-    this.miniaturaurl = miniaturaurl;
-    this.hospedajes = hospedajes;
-    this.transporte = transporte;
-    this.formas_llegar = formas_llegar;
-}
-  
-// Método para agregar un punto a la página
-Punto.prototype.agregarPunto = function(contenedor) {
-    // Crear elementos HTML
-    const contenedorPunto = document.createElement("div");
-    contenedorPunto.classList.add("index-punto");
-  
-    const elementoTitulo = document.createElement("h3");
-    elementoTitulo.textContent = this.nombre;
-  
-    const elementoDescripcion = document.createElement("p");
-    elementoDescripcion.textContent = this.descripcion;
-  
-    const elementoUbicacion = document.createElement("p");
-    elementoUbicacion.textContent = this.pais + " " + this.provincia;
-  
-    const elementoTransporte = document.createElement("p");
-    elementoTransporte.textContent = "Transportes: " + this.transporte + "; Formas de llegar: " + this.formas_llegar;
-  
-    const elementoHospedajes = document.createElement("p");
-    elementoHospedajes.textContent = "Hospedajes: " + this.hospedajes;
-  
-    const elementoImagen = document.createElement("img");
-    elementoImagen.src = this.miniaturaurl;
-  
-    // Agregar elementos al contenedor
-    contenedorPunto.appendChild(elementoImagen);
-    contenedorPunto.appendChild(elementoTitulo);
-    contenedorPunto.appendChild(elementoDescripcion);
-    contenedorPunto.appendChild(elementoUbicacion);
-    contenedorPunto.appendChild(elementoTransporte);
-    contenedorPunto.appendChild(elementoHospedajes);
-  
-    // Agregar contenedorPunto al contenedor principal
-    contenedor.appendChild(contenedorPunto);
-};
-  
-// Función para subir una imagen
-async function subirImagen(archivo) {
-    const archivoImagen = archivo.target.files[0];
-    const nombreArchivo = archivoImagen.name;
-    const nombreSinExtension = nombreArchivo.replace(/\.[^/.]+$/, "");
-    const url = `https://api.imgbb.com/1/upload?key=fb47470933bd10712434f449f011599a&name=${nombreSinExtension}`;
-    const data = new FormData();
-    data.append("image", archivoImagen);
-    try {
-        const respuesta = await fetch(url, {
-            method: "POST",
-            body: data,
-        });
-        const datosregresados = await respuesta.json();
-        return [datosregresados.data.url, datosregresados.data.thumb.url, datosregresados.success];
-    } catch (error) {
-        console.error(error);
-    }
-}
-  
-// Función para subir un punto turístico
-async function subirPuntoTuristico(punto){
-    try {
-        const url = `https://sheetdb.io/api/v1/tv96lgxabh427`;
-        const datosPunto = {
-            data: {
-                id: "INCREMENT",
-                nombre: punto.nombre,
-                provincia: punto.provincia,
-                pais: punto.pais,
-                descripcion: punto.descripcion,
-                fotourl: punto.fotourl,
-                miniaturaurl: punto.miniaturaurl,
-                hospedajes: punto.hospedajes,
-                transporte: punto.transporte,
-                formas_llegar: punto.formas_llegar
-            },
-        };
-        const opciones = {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(datosPunto),
-        };
-        const response = await fetch(url, opciones);
-        if (!response.ok){
-            throw new Error("Error al guardar el Punto Turistico");
-        }
-        const data =  await response.json();
-        return true; // Si se guardo bien
-    } catch(error) {
-        console.error("Error ", error);
-        return false;
-    }
-}
+ 
   
 // Función para guardar datos
 async function guardarDatos() {
     try {
+        animacionBotonCarga("guardarDatos",true)
         // Obtener los valores de los campos del formulario
         const nombre = document.getElementById('nombre').value;
         const provincia = document.getElementById('provincia').value;
@@ -161,6 +60,7 @@ async function guardarDatos() {
     } catch (error) {
         console.error("Error al guardar los datos:", error);
     }
+    animacionBotonCarga("guardarDatos",false)
 }
   
 document.addEventListener("DOMContentLoaded", function() {
@@ -193,4 +93,25 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Agregar evento click al botón "Guardar Datos"
     document.getElementById("guardarDatos").addEventListener("click", guardarDatos);
+
+
+    
+    // ESCUCHAMOS AL BOTON SUSCRIBIR Y LLAMAMOS A LA FUNCION DE CARGA
+    document.getElementById("footer-boton-suscriptor").addEventListener("click", () => {
+    const correo = document.getElementById("footer-text-subscribir").value
+        //console.log("Probando", correo)
+        cargarSuscriptor(correo)
+      });
+    // ESCUCHAMOS AL INPUT POR SI ALGUINE PRECIONA ENTER QUE EJECUTE LA FUNCION DE CARGA
+    document.getElementById("footer-text-subscribir").addEventListener("keydown", function (event) {
+      // Verificar si la tecla presionada es Enter
+      if (event.key === "Enter") {
+        // Detener la propagación del evento para evitar el envío del formulario
+        event.preventDefault();
+        const correo = document.getElementById("footer-text-subscribir").value
+        cargarSuscriptor(correo);
+      }
+    }); // FIN SUBSCRIBIRSE
+
+
 });  
