@@ -1,5 +1,5 @@
 import { Usuario, Punto } from "./objetos.js";
-import { subirSuscriptor, consultarSuscriptor, bajarPuntos} from "./persistencia.js";
+import { subirSuscriptor, consultarSuscriptor, bajarPuntos, animacionBotonCarga, animacionCursoCarga} from "./persistencia.js";
 import {  } from "./dario.js";
 
 // ESCUCHANDO AL BOTON BUSCAR
@@ -14,7 +14,8 @@ document.getElementById("index-input-busqueda").addEventListener("keydown",funct
 })
 
 async function consultarPuntos(filtro) {
-    console.log("Se ingreso a la consultarPuntos");
+    // console.log("Se ingreso a la consultarPuntos");
+    animacionBotonCarga("index-buscar-puntos",true)
     try {
       const listaPuntos = await bajarPuntos(filtro);
       // Limpiamos el contenedor
@@ -37,14 +38,10 @@ async function consultarPuntos(filtro) {
     } catch (error) {
       console.error("Error al consultar los puntos: ", error);
     }
+    animacionBotonCarga("index-buscar-puntos",false)
   }
 
-
-
-
-
 // SECCION DEL SUSCRIBIR CARGA Y CONTROL
-
 const btSuscrptor = "footer-boton-suscriptor";
 // ESCUCHAMOS AL BOTON SUSCRIBIR Y LLAMAMOS A LA FUNCION DE CARGA
 document.getElementById(btSuscrptor).addEventListener("click", () => cargarSuscriptor());
