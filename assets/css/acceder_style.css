@@ -1,0 +1,118 @@
+/* Encapsula todos los estilos dentro de la clase .acceder-turismo */
+.acceder-turismo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Altura mínima para centrar en la pantalla */
+}
+
+.acceder-turismo .acceder-contenedor-formulario {
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  max-width: 400px; /* Ajustar el ancho máximo del contenedor */
+  width: 100%;
+}
+
+.acceder-turismo .acceder-formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ajuste del ancho para evitar desbordamiento */
+}
+
+.acceder-turismo .acceder-formulario h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem; /* Tamaño de fuente más grande */
+  color: #000; /* Color de texto negro */
+  font-weight: bold; /* Negrita */
+}
+
+.acceder-turismo .input-formulario {
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: 100%; /* Asegura que el input ocupe todo el ancho del formulario */
+}
+
+.acceder-turismo .input-formulario input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+  font-size: 1rem;
+  color: #000; /* Color de texto negro */
+}
+
+.acceder-turismo .input-formulario label {
+  position: absolute;
+  top: -1.2rem;
+  left: 0.8rem;
+  background-color: #fff;
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+  color: #000; /* Color de texto negro */
+  font-weight: bold; /* Negrita */
+  white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+}
+
+.acceder-turismo .input-formulario label {
+  top: 0.5rem; /* Alinea el texto a la izquierda */
+  left: 0.8rem;
+  background: transparent;
+  transform: translateY(-50%);
+}
+
+.acceder-turismo .formulario-boton-acciones {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna para apilar el botón y el enlace */
+  align-items: center; /* Centrar elementos */
+  width: 100%; /* Asegura que ocupe todo el ancho del formulario */
+}
+
+.acceder-turismo .botones-formularios {
+  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+  padding: 0.8rem 1.2rem;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem; /* Añadido margen inferior para separar del enlace */
+}
+
+.acceder-turismo .botones-formularios:hover {
+  background-color: #0056b3;
+}
+
+.acceder-turismo .botones-formularios:active {
+  background-color: #004494;
+}
+
+.acceder-turismo a {
+  align-self: center;
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.acceder-turismo a:hover {
+  color: #28a745; /* Color verde cuando se hace hover */
+  text-decoration: underline;
+}
+
+.acceder-turismo a:active {
+  color: #1e7e34; /* Color verde más oscuro cuando se hace click */
+}
+.acceder-turismo #mensaje {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}

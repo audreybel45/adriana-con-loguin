@@ -10,118 +10,107 @@
 <body>
     <header>
         <div class="contenedor-imagen-header">
-          <img src="../assets/images/icon/logo.png" alt="Logo de la Pagina">
+            <img src="../assets/images/icon/logo.png" alt="Logo de la Pagina">
         </div>
         <label class="header-icono-hamburguesa" for="header-menu-hamburguesa"><img src="../assets/images/icon/menu.png" alt="Icono Menu Hamburguesa"></label>
         <input type="checkbox" id="header-menu-hamburguesa">
         <nav class="contenedor-link-header">
-          <ul>
-            <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="./turismo.html"><i class="fas fa-map-marked-alt"></i> Turismo</a></li>
-            <li><a href="./restaurantes.html"><i class="fas fa-utensils"></i> Restaurantes</a></li>
-            <li><a href="./guias.html"><i class="fas fa-users"></i> Guias</a></li>
-            <li><a href="./acceder.html"><i class="fas fa-sign-in-alt"></i> Acceder</a></li>
-            <li><a href="./registrar.html"><i class="fas fa-user-plus"></i> Registrar</a></li>
-          </ul>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="./turismo.html"><i class="fas fa-map-marked-alt"></i> Turismo</a></li>
+                <li><a href="./restaurantes.html"><i class="fas fa-utensils"></i> Restaurantes</a></li>
+                <li><a href="./guias.html"><i class="fas fa-users"></i> Guias</a></li>
+                <li><a href="./acceder.html"><i class="fas fa-sign-in-alt"></i> Acceder</a></li>
+                <li><a href="./registrar.html"><i class="fas fa-user-plus"></i> Registrar</a></li>
+            </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Contanos tu experiencia</h1>
+    <div class="turismo-formulario">
+        <div class="container">
+            <h1>Contanos tu experiencia</h1>
+            <form id="formulario">
+                <label for="nombre">Nombre del Sitio:</label>
+                <input type="text" id="nombre" required>
 
-        <!-- Contenedor para el formulario -->
-      <!--<div id="formulario-container" style="display: none;"> -->
-        <form id="formulario">
-            <label for="nombre">Nombre del Sitio:</label>
-            <input type="text" id="nombre" required>
+                <label for="provincia">Provincia:</label>
+                <input type="text" id="provincia" required>
 
-            <label for="provincia">Provincia:</label>
-            <input type="text" id="provincia" required>
+                <label for="pais">País:</label>
+                <input type="text" id="pais" required>
 
-            <label for="pais">País:</label>
-            <input type="text" id="pais" required>
+                <label for="descripcion">Descripción de los Atractivos:</label>
+                <textarea id="descripcion" rows="4" required></textarea>
 
-            <label for="descripcion">Descripción de los Atractivos:</label>
-            <textarea id="descripcion" rows="4" required></textarea>
+                <label for="foto">Foto del Lugar (JPEG):</label>
+                <input type="file" id="foto" accept="image/jpeg" required>
 
-            <label for="foto">Foto del Lugar (JPEG):</label>
-            <input type="file" id="foto" accept="image/jpeg" required>
+                <label for="hospedajes">Hospedajes:</label>
+                <input type="text" id="hospedajes" required>
 
-            <label for="hospedajes">Hospedajes:</label>
-            <input type="text" id="hospedajes" required>
+                <label for="transporte">Medios de Transporte:</label>
+                <input type="text" id="transporte" required>
 
-            <label for="transporte">Medios de Transporte:</label>
-            <input type="text" id="transporte" required>
+                <label for="formas_llegar">Formas de Llegar:</label>
+                <textarea id="formas_llegar" rows="4" required></textarea>
 
-            <label for="formas_llegar">Formas de Llegar:</label>
-            <textarea id="formas_llegar" rows="4" required></textarea>
-
-            <button type="button" id="guardarDatos">Guardar Datos</button>
-        </form>
-
-      </div>
-
-      <!-- Contenedor para mensaje de acceso denegado -->
-    <!--  <div id="access-denied-message" style="display: none;">
-        <p>Acceso denegado. Por favor, <a href="./acceder.html">inicie sesión</a> para agregar información.</p>
-    </div>-->
-      
-        <!-- Contenedor para mostrar los puntos turísticos -->
+                <button type="button" id="guardarDatos">Guardar Datos</button>
+            </form>
+        </div>
         <div id="contenedor-puntos"></div>
     </div>
     <footer>
         <div class="footer-primer-contenedor">
-          <img src="../assets/images/icon/logo.png" alt="Logo de la pagina" >
-          <form id="form-subscribete">
-            <input
-              type="email"
-              id="footer-text-subscribir"
-              name="subcribete"
-              placeholder="Correo Electronico"
-              required
-            >
-            <button type="button"  id="footer-boton-suscriptor">Subcribirse</button>
-          </form>
+            <img src="../assets/images/icon/logo.png" alt="Logo de la pagina">
+            <form id="form-subscribete">
+                <input
+                    type="email"
+                    id="footer-text-subscribir"
+                    name="subcribete"
+                    placeholder="Correo Electronico"
+                    required
+                >
+                <button type="button"  id="footer-boton-suscriptor">Subcribirse</button>
+            </form>
         </div>
         <div class="footer-segundo-contenedor">
-          <h4>Contacto</h4>
-          <ul class="footer-contacto">
-            <li>
-              <a href="https://wa.me/543885273263" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/whatsapp.png" alt="WhatsApp">  +543885273263
-              </a>
-              
-            </li>
-            <li>
-              <a href="mailto:bdidominguez@gmail.com" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/gmail.png" alt="Correo">  bdidominguez@gmail.com
-              </a>
-            </li>
-          </ul>
-          <h4>Redes Sociales</h4>
-          <ul class="footer-redes-sociales">
-            <li>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/linkedin.png" alt="LinkedIn">
-              </a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/youtube.png" alt="YouTube">
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/facebook.png" alt="Facebook">
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <img src="../assets/images/icon/instagram.png" alt="Instagram">
-              </a>
-            </li>
-          </ul>
+            <h4>Contacto</h4>
+            <ul class="footer-contacto">
+                <li>
+                    <a href="https://wa.me/543885273263" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/whatsapp.png" alt="WhatsApp">  +543885273263
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:bdidominguez@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/gmail.png" alt="Correo">  bdidominguez@gmail.com
+                    </a>
+                </li>
+            </ul>
+            <h4>Redes Sociales</h4>
+            <ul class="footer-redes-sociales">
+                <li>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/linkedin.png" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/youtube.png" alt="YouTube">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/images/icon/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+            </ul>
         </div>
-      </footer>
-    <script src="../assets/js/adriana.js" type="module" defer></script> <!-- Usar defer para cargar después del DOM /// y te falto poner type="module" para que te deje importar las funciones -->
+    </footer>
+    <script src="../assets/js/adriana.js" type="module" defer></script>
 </body>
 </html>

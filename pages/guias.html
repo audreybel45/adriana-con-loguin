@@ -8,7 +8,7 @@
   <script src="../assets/js/guias.js" type="module"></script>
   <title>Turismo ─ Guías Turísticos</title>
 </head>
-<body>
+<body class="guias-turisticos">
   <header>
     <div class="contenedor-imagen-header">
       <img src="../assets/images/icon/logo.png" alt="Logo de la Pagina">
@@ -27,152 +27,98 @@
     </nav>
   </header>
   <main>
-    <!-- section guias -->
     <section>
-      <h1>Buscar Guía</h1>
-      <!-- formulario de búsqueda -->
-      <form>           
-        <input type="text" placeholder="Ingresar nombre">
-        <button type="submit" id="search-button"> 
-          <img src="https://www.gstatic.com/images/icons/material/system/1x/search_black_24dp.png" alt="Buscar">
-        </button>
+        <h1>Bienvenido a nuestra página de guías turísticas</h1>
+        <form id="filtro-guias">
+          <div>
+            <label for="ubicacion">Ubicación:</label>
+            <select id="ubicacion">
+              <option value="todas">Todas</option>
+              <option value="buenos-aires">Buenos Aires</option>
+              <option value="ciudad autónoma de buenos aires">Ciudad Autónoma de Buenos Aires</option>
+              <option value="catamarca">Catamarca</option>
+              <option value="chaco">Chaco</option>
+              <option value="chubut">Chubut</option>
+              <option value="córdoba">Córdoba</option>
+              <option value="corrientes">Corrientes</option>
+              <option value="entre ríos">Entre Ríos</option>
+              <option value="formosa">Formosa</option>
+              <option value="jujuy">Jujuy</option>
+              <option value="la pampa">La Pampa</option>
+              <option value="la rioja">La Rioja></option>
+              <option value="san luis">Buenos Aires</option>
+              <option value="mendoza">Mendoza</option>
+              <option value="misiones">Misiones</option>
+              <option value="neuquén">Neuquén</option>
+              <option value="río negro">Río Negro</option>
+              <option value="salta">Salta</option>
+              <option value="san juan">San Juan</option>
+              <option value="san luis">San Luis</option>
+              <option value="santa fe">Santa Fe</option>
+              <option value="santiago del estero">Santiago del Estero</option>
+              <option value="tierra del fuego, antártida e islas del atlántico sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+              <option value="tucumán">Tucumán</option>
+          </select>
+        </div>
+        <div>
+          <label for="servicios">Servicios:</label>
+          <select id="servicios">
+            <option value="todos">Todos</option>
+            <option value="recepcion">Recepción de Visitantes</option>
+            <option value="itinerario">Organización de Itinerario</option>
+            <option value="explicacion">Explicación y Orientación</option>
+          </select>
+        </div>
+        <div>
+          <label for="precio">Precio:</label>
+          <select id="precio">
+            <option value="todos">Todos</option>
+            <option value="bajo">Bajo</option>
+            <option value="medio">Medio</option>
+            <option value="alto">Alto</option>
+          </select>
+        </div>
+        <div>
+          <label for="idiomas">Idiomas:</label>
+          <select id="idiomas">
+            <option value="todos">Todos</option>
+            <option value="espanol">Español</option>
+            <option value="ingles">Inglés</option>
+            <option value="portugues">Portugués</option>
+          </select>
+        </div>
+        <button type="button" id="filtrar">Filtrar</button>
       </form>
     </section>
-    
     <section>
       <h1>Guías Turísticos</h1>
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <img src="/assets/images/guies-pictures/daniela-roman.jpg" alt="imagen-daniela-roman">
-        </div>
-        
-        <div>
-          <p>Daniela Roman</p>
-          <p>Valoración</p>
-          <a href="#">Ver perfil</a>
-          <a href="#">Enviar mensaje</a>
-        </div>
+      <div id="contenedor-guias">
+        <!-- Aquí se mostrarán las guías filtradas -->
       </div>
     </section>
-    </main>
-    <footer>
-      <div class="footer-primer-contenedor">
-        <img src="../assets/images/icon/logo.png" alt="Logo de la pagina" >
-        <form id="form-subscribete">
-          <input
-            type="email"
-            id="footer-text-subscribir"
-            name="subcribete"
-            placeholder="Correo Electronico"
-            required
-          >
-          <button type="button"  id="footer-boton-suscriptor">Subcribirse</button>
-        </form>
-      </div>
-      <div class="footer-segundo-contenedor">
-        <h4>Contacto</h4>
-        <ul class="footer-contacto">
-          <li>
-            <a href="https://wa.me/543885273263" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/whatsapp.png" alt="WhatsApp">  +543885273263
-            </a>
-            
-          </li>
-          <li>
-            <a href="mailto:bdidominguez@gmail.com" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/gmail.png" alt="Correo">  bdidominguez@gmail.com
-            </a>
-          </li>
-        </ul>
-        <h4>Redes Sociales</h4>
-        <ul class="footer-redes-sociales">
-          <li>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/linkedin.png" alt="LinkedIn">
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/youtube.png" alt="YouTube">
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/facebook.png" alt="Facebook">
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icon/instagram.png" alt="Instagram">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </body>
+  </main>
+  <footer>
+    <div class="footer-primer-contenedor">
+      <img src="../assets/images/icon/logo.png" alt="Logo de la pagina">
+      <form id="form-subscribete">
+        <input type="email" id="footer-text-subscribir" name="subcribete" placeholder="Correo Electronico" required>
+        <button type="button" id="footer-boton-suscriptor">Subcribirse</button>
+      </form>
+    </div>
+    <div class="footer-segundo-contenedor">
+      <h4>Contacto</h4>
+      <ul class="footer-contacto">
+        <li><a href="https://wa.me/543885273263" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/whatsapp.png" alt="WhatsApp"> +543885273263</a></li>
+        <li><a href="mailto:bdidominguez@gmail.com" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/gmail.png" alt="Correo"> bdidominguez@gmail.com</a></li>
+      </ul>
+      <h4>Redes Sociales</h4>
+      <ul class="footer-redes-sociales">
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/linkedin.png" alt="LinkedIn"></a></li>
+        <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/youtube.png" alt="YouTube"></a></li>
+        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/facebook.png" alt="Facebook"></a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/instagram.png" alt="Instagram"></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
 </html>

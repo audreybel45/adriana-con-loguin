@@ -7,7 +7,8 @@
 @import "./turismo_styles.css"; 
 @import "./enconstruccion.css";
 @import "./restaurantes.css";
-/* @import "../../assets/css/acceder_styles.css"; */
+@import "./guias_style.css";
+@import "./acceder_style.css";
 
 
 body,
