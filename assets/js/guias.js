@@ -1,3 +1,6 @@
+
+import {miMensaje} from "./persistencia.js";
+
 document.getElementById('filtrar').addEventListener('click', function() {
   const ubicacion = document.getElementById('ubicacion').value;
   const servicios = document.getElementById('servicios').value;
@@ -31,16 +34,21 @@ document.getElementById('filtrar').addEventListener('click', function() {
   contenedorGuias.innerHTML = '';
 
   guiasFiltradas.forEach(guia => {
+    
+
     const guiaDiv = document.createElement('div');
     guiaDiv.classList.add('guia');
     guiaDiv.innerHTML = `
       <img src="${guia.foto}" alt="imagen-${guia.nombre}">
-      <h3>${guia.nombre}</h3>
-      <p>Idiomas: ${guia.idiomas.join(', ')}</p>
-      <p>Servicios: ${guia.servicios.join(', ')}</p>
-      <p>Contacto: <a href="mailto:${guia.contacto.mail}">${guia.contacto.mail}</a>, ${guia.contacto.telefono}</p>
-      <a href="#">Ver perfil</a>
-      <a href="#">Enviar mensaje</a>
+      <div class="guia-info">
+        <h3>${guia.nombre}</h3>
+        <p><strong>Idiomas:</strong> ${guia.idiomas.join(', ')}</p>
+        <p><strong>Servicios:</strong> ${guia.servicios.join(', ')}</p>
+        <p><strong>Contacto:</strong> <a href="mailto:${guia.contacto.mail}">${guia.contacto.mail}</a>, ${guia.contacto.telefono}</p>
+        <p><strong>Precio:</strong> ${guia.precio}</p>
+        
+        <a href="#">Enviar mensaje</a>
+      </div>
     `;
     contenedorGuias.appendChild(guiaDiv);
   });
