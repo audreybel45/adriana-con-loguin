@@ -1,5 +1,6 @@
 
-import { miMensaje, listarUsuarios } from "./persistencia";
+import { miMensaje, listarUsuarios } from "./persistencia.js";
+                                          
 
 // Define la función listarUsuarios directamente en este archivo
 // async function listarUsuarios() {

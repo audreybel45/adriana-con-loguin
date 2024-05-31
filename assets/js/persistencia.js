@@ -127,8 +127,8 @@ export async function consultarUsuarioDNI(dni){
  */
 export async function listarUsuarios() {
   let listaUsuarios = []
-  //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios" // bdidominguezmegro
-  const url = "https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=usuarios" // ayaiten
+  //const url = `https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios` // bdidominguezmegro
+  const url = `https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=usuarios` // ayaiten
   const respuesta = await fetch(url)
   if (respuesta.ok) {
     const data = await respuesta.json()
@@ -136,6 +136,8 @@ export async function listarUsuarios() {
       data.forEach(item => {
         const usuario = new Usuario(
           item.id,
+          item.dni,
+          item.correo,
           item.nombre,
           item.apellido,
           item.fechaNacimiento,

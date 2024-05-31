@@ -14,31 +14,7 @@
     text-transform: uppercase;
   }
 
-  .sombra {
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-  }
-
-  .pdg-18 {
-    padding: 20px;
-  }
-
-  .filter-form {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-  }
-
-  .filter-row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .filter-item {
-    flex-basis: 100%;
-    margin-bottom: 10px;
-  }
-
+ 
   label {
     display: inline-block;
     width: 100px;
@@ -84,15 +60,7 @@
     color: inherit;
   }
 
-  .nombre-restaurant {
-    font-size: 30px;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .card-resto {
-    background-color: #fff;
-  }
+  
 } /* fin propiedades pantalla grande */
 
 /* Estilos para tabletas (entre 768px y 991px) */
@@ -110,4 +78,39 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
+}
+
+.sombra {
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pdg-18 {
+  padding: 20px;
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.nombre-restaurant {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.card-resto {
+  background-color: #fff;
 }
