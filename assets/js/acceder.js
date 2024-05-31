@@ -1,4 +1,5 @@
-import { miMensaje } from "./persistencia.js";
+
+import { miMensaje } from "./persistencia";
 
 
 // Define la función listarUsuarios directamente en este archivo
@@ -38,13 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
       const usuarioEncontrado = usuarios.find(usuario => usuario.usuario === nombreUsuario && usuario.clave === clave);
 
     if (usuarioEncontrado) {
-      alert("Acceso exitoso");
-      // Redireccionar o mostrar contenido para usuarios registrados
-      window.location.href = "./pagina_usuario.html"; // Redirige a una página para usuarios registrados
+      mensaje.textContent = 'Bienvenido, ' + nombreUsuario + '!';
+      mensaje.style.color = 'green';
+      
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 2000); // Retraso de 2 segundos antes de la redirección
     } else {
-      alert("Nombre de usuario o clave incorrectos");
+      mensaje.textContent = 'Nombre de usuario o clave incorrectos. Vuelve a intentar.';
+      mensaje.style.color = 'red';
+      
     }
-  });
+  } catch (error) {
+    console.error('Error al listar usuarios:', error);
+    //alert('Hubo un error al intentar acceder. Intente nuevamente más tarde.');
+    //mensaje.style.color = 'red';
+  }
+});
+
   
   // ESCUCHAMOS AL BOTON SUSCRIBIR Y LLAMAMOS A LA FUNCION DE CARGA
   document.getElementById("footer-boton-suscriptor").addEventListener("click", () => {

@@ -1,6 +1,6 @@
 //import { Punto } from "./datos.js";
 //import { subirImagen, subirPuntoTuristico } from "./datos.js";
-import { cargarSuscriptor, subirImagen, subirPuntoTuristico, animacionBotonCarga} from "./persistencia.js";
+import { cargarSuscriptor, subirImagen, subirPuntoTuristico, animacionBotonCarga,miMensaje} from "./persistencia.js";
 import {Punto } from "./objetos.js";
 // comente los import y puse las funciones que necesitaba ademas de las que cree  dentro de mi script porque con el import no las tomaba
 
