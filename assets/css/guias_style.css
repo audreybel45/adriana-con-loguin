@@ -91,7 +91,7 @@
     justify-content: center;
 }
 
-/*.guias-turisticos #contenedor-guias > div {
+.guias-turisticos #contenedor-guias > div {
     flex: 1 1 600px;
     display: flex;
     align-items: center;
@@ -135,54 +135,4 @@
 
 .guias-turisticos #contenedor-guias a:hover {
     background-color: #99ccff;
-}*/
-#contenedor-guias {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .guia {
-    display: flex;
-    align-items: flex-start;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    background-color: #fff;
-  }
-  
-  .guia img {
-    border-radius: 10px;
-    margin-right: 20px;
-    max-width: 150px;
-  }
-  
-  .guia-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .guia-info h3 {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .guia-info p {
-    margin: 5px 0;
-  }
-  
-  .guia-info a {
-    margin-top: 10px;
-    text-decoration: none;
-    color: #007BFF;
-  }
-  
-  .guia-info a:hover {
-    text-decoration: underline;
-  }
-  
-  .guia-info p strong {
-    font-weight: bold;
-  }
-  
+}
