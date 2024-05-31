@@ -125,7 +125,7 @@ export async function consultarUsuarioDNI(dni){
  * @param {} id numerico
  * @id es el numero de usario de no tener -1 en dicho id se traeran todos
  */
-export async function listarUsaurios() {
+export async function listarUsuarios() {
   let listaUsuarios = []
   //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios" // bdidominguezmegro
   const url = "https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=usuarios" // ayaiten

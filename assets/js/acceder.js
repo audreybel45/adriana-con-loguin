@@ -1,22 +1,22 @@
 
-import { miMensaje } from "./persistencia";
-
+import { miMensaje, listarUsuarios } from "./persistencia";
 
 // Define la función listarUsuarios directamente en este archivo
-async function listarUsuarios() {
-  try {
-    const response = await fetch('https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios');
-    if (!response.ok) {
-      throw new Error('Error en la solicitud a SheetDB');
-    }
-    const usuarios = await response.json();
-    console.log('Usuarios obtenidos:', usuarios); // Log para depuración
-    return usuarios;
-  } catch (error) {
-    console.error('Error al obtener usuarios:', error);
-    throw error;
-  }
-}
+// async function listarUsuarios() {
+//   try {
+//     const response = await fetch('https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios');
+//     if (!response.ok) {
+//       throw new Error('Error en la solicitud a SheetDB');
+//     }
+//     const usuarios = await response.json();
+//     console.log('Usuarios obtenidos:', usuarios); // Log para depuración
+    
+//     return usuarios;
+//   } catch (error) {
+//     console.error('Error al obtener usuarios:', error);
+//     throw error;
+//   }
+// }
 
 // Agrega el listener al botón de acceso cuando el DOM se haya cargado
 document.addEventListener("DOMContentLoaded", function () {
