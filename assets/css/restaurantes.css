@@ -1,28 +1,27 @@
 /* Estilos para pantallas grandes (mayores a 992px) */
 @media only screen and (min-width: 992px) {
-  /* Agrega tus estilos para pantallas grandes aquí */
-
-  .contenedor {
-    max-width: 1200px;
+  /* Estilos del buscador */
+  .restaurante-contenedor{
+    max-width: 80%;
     margin: 0 auto;
     padding: 20px;
   }
-
-  h1 {
+  
+  .restaurante-titulo {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     text-transform: uppercase;
   }
 
  
-  label {
+  .restaurante-contenedor label {
     display: inline-block;
     width: 100px;
     text-align: right;
     margin-right: 10px;
   }
 
-  select {
+  .restaurante-contenedor select {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -30,13 +29,7 @@
     width: 200px;
   }
 
-  .fix-letter {
-    letter-spacing: 0.4px;
-  }
-
-  .mgb-20 {
-    margin-bottom: 25px;
-  }
+  /*  Etiquetas de restaurantes  */
 
   .restaurante-info {
     display: flex;
@@ -54,10 +47,20 @@
     padding: 10px 3px;
   }
 
-  a {
-    text-decoration: none;
-    font-weight: bolder;
-    color: inherit;
+  .filter-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .filter-item {
+    flex-basis: 100%;
+    margin-bottom: 10px;
   }
 
   
@@ -65,19 +68,118 @@
 
 /* Estilos para tabletas (entre 768px y 991px) */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* Agrega tus estilos para tabletas aquí */
+  .restaurante-contenedor{
+    max-width: 100%;
+    margin: 0 1rem 0 1rem ;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .restaurante-titulo {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+ 
+  .restaurante-contenedor label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .restaurante-contenedor select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px;
+  }
+
+  .imagen-restaurante {
+    border-radius: 8px;
+    width: 350px;
+  }
+
 }
 
 /* Estilos para celulares (menores a 767px) */
 @media only screen and (max-width: 767px) {
-  /* Agrega tus estilos para celulares aquí */
-}
+  .restaurante-contenedor{
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+  
+  .restaurante-titulo {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+ 
+  .restaurante-contenedor label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+    padding-bottom: 1rem;
+  }
+
+  .restaurante-contenedor select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px;
+  }
+
+  /*  Etiquetas de restaurantes  */
+
+  .restaurante-info {
+    display: flex;
+    gap: 45px;
+  }
+
+  .imagen-restaurante {
+    border-radius: 8px;
+    width: 450px;
+  }
+
+  .descripcion-restaurante {
+    flex: 2;
+    margin: 15px 8px;
+    padding: 10px 3px;
+  }
+
+  .restaurante-info a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: inherit;
+  }
+
+  .restaurante-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .imagen-restaurante {
+    border-radius: 8px;
+    width: 300px;
+    
+  }
+  
+} /*  Fin estilos celular  */
 
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
 .sombra {
@@ -89,21 +191,7 @@ body {
   padding: 20px;
 }
 
-.filter-form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
 
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.filter-item {
-  flex-basis: 100%;
-  margin-bottom: 10px;
-}
 
 .nombre-restaurant {
   font-size: 30px;
@@ -113,4 +201,18 @@ body {
 
 .card-resto {
   background-color: #fff;
+}
+
+.fix-letter {
+  letter-spacing: 0.4px;
+}
+
+.mgb-20 {
+  margin-bottom: 25px;
+}
+
+.restaurante-info a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: inherit;
 }
