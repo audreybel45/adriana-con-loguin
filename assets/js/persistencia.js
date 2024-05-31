@@ -1,6 +1,7 @@
 export async function subirPuntoTuristico(punto){
   try {
-    const url = `https://sheetdb.io/api/v1/tv96lgxabh427`
+    // const url = `https://sheetdb.io/api/v1/tv96lgxabh427`    // --- Cuenta de bdidomingueznegro
+    const url = `https://sheetdb.io/api/v1/m2snjn3r4siwv`       // --- Cuenta de Ayaiten
     // Creamos un objeto de Datos con los datos del Objeto Punto
     const datosPunto = {
       data: {
@@ -48,7 +49,8 @@ import { Usuario } from "./objetos.js";
  */
 export async function consultarUsuario(id){
   let resp = new Usuario;
-  const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?id=${id}&sheet=usuarios` 
+  // const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?id=${id}&sheet=usuarios`  // -- bdidomingueznegro
+  const url = `https://sheetdb.io/api/v1/m2snjn3r4siwv/search?id=${id}&sheet=usuarios`  // ayaiten
   const respuesta = await fetch(url)
   if (respuesta.ok) {
     const data = await respuesta.json()
@@ -85,7 +87,8 @@ export async function consultarUsuario(id){
  */
 export async function consultarUsuarioDNI(dni){
   let resp = new Usuario;
-  const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?dni=${dni}&sheet=usuarios` 
+  //const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?dni=${dni}&sheet=usuarios`  // bdidomingueznegro
+  const url = `https://sheetdb.io/api/v1/m2snjn3r4siwv/search?dni=${dni}&sheet=usuarios`  // ayaiten
   const respuesta = await fetch(url)
   if (respuesta.ok) {
     const data = await respuesta.json()
@@ -124,7 +127,8 @@ export async function consultarUsuarioDNI(dni){
  */
 export async function listarUsaurios() {
   let listaUsuarios = []
-  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios"
+  //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios" // bdidominguezmegro
+  const url = "https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=usuarios" // ayaiten
   const respuesta = await fetch(url)
   if (respuesta.ok) {
     const data = await respuesta.json()
@@ -162,7 +166,8 @@ export async function listarUsaurios() {
  * para ser almacenada en el servidor SheetDB
  */
 export async function subirUsuario(usuario) {
-  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios";
+  //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios"; // bdidomingueznegro
+  const url = "https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=usuarios"; // ayaiten
   // Creemos un objeto con los datos del usuario
   const datosUsuario = {
     data: {
@@ -210,7 +215,8 @@ export async function subirUsuario(usuario) {
 import { Punto } from "./objetos.js";
 
 export async function bajarPuntos(filtro) {
-  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or";
+  //const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or"; // bdidomingueznegro
+  const urlApi = "https://sheetdb.io/api/v1/m2snjn3r4siwv/search_or"; // ayaiten
   const queryParams = [
     `nombre=*${encodeURIComponent(filtro)}*`,
     `provincia=*${encodeURIComponent(filtro)}*`,
@@ -306,7 +312,8 @@ export async function subirImagen(archivo) {
 // ENVIAR NUEVO SUBSCRIPTOR
 
 export async function subirSuscriptor(correo) {
-  const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=suscripcion";
+  //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=suscripcion"; // bdidomingueznegro
+  const url = "https://sheetdb.io/api/v1/m2snjn3r4siwv?sheet=suscripcion"; // ayaiten
   // Cremos un objeto con los datos del usuario
   const datos = {
     data: {
@@ -339,7 +346,8 @@ export async function subirSuscriptor(correo) {
 // CONSULTANDO  SUBSCRIPTOR
 
 export async function consultarSuscriptor(correo) {
-  const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?correo=${correo}&sheet=suscripcion`;
+  //const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?correo=${correo}&sheet=suscripcion`; // bdidominugez
+  const url = `https://sheetdb.io/api/v1/m2snjn3r4siwv/search?correo=${correo}&sheet=suscripcion`; // bdidominugez
   try{
     const response = await fetch(url)
     const data = await response.json()
