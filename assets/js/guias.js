@@ -20,6 +20,58 @@ document.getElementById('filtrar').addEventListener('click', function() {
       precio: 'medio',
       idiomas: ['espanol', 'ingles']
     },
+
+    {
+      nombre: 'Daniel Romano',
+      foto: '../assets/images/guies-pictures/daniel-romano.jpg',
+      contacto: {
+        mail: 'danielro@example.com',
+        telefono: '+541133341111'
+      },
+      ubicacion: 'buenos-aires, cordoba, santa fe,',
+      servicios: ['recepcion', 'itinerario',"explicacion "],
+      precio: 'medio',
+      idiomas: ['espanol', 'ingles',"portugues"]
+    },
+
+    {
+      nombre: 'Dante Allighieri',
+      foto: '../assets/images/guies-pictures/dante-allighieri.jpg',
+      contacto: {
+        mail: 'dantealli@example.com',
+        telefono: '+5429133426767'
+      },
+      ubicacion: 'todas',
+      servicios: ['recepcion', 'itinerario',"explicacion"],
+      precio: 'bajo',
+      idiomas: ['espanol', 'ingles']
+    },
+
+    {
+      nombre: 'Andrea Garcia',
+      foto: '../assets/images/guies-pictures/andrea-garcia.jpg',
+      contacto: {
+        mail: 'andrea37@example.com',
+        telefono: '+5431123457689'
+      },
+      ubicacion: 'buenos-aires',
+      servicios: ['recepcion', 'itinerario'],
+      precio: 'alto',
+      idiomas: ['espanol', 'ingles',"portugues"]
+    },
+
+    {
+      nombre: 'Ezequiel Martinez',
+      foto: '../assets/images/guies-pictures/ezequiel-martinez.jpg',
+      contacto: {
+        mail: 'dezemartinez@example.com',
+        telefono: '+541143345151'
+      },
+      ubicacion: 'todas',
+      servicios: ['recepcion', 'itinerario',"explicacion"],
+      precio: 'medio',
+      idiomas: ['espanol', 'ingles',"portuguez"]
+    },
     // Agrega más guías aquí
   ];
 
