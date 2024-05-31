@@ -1,3 +1,10 @@
+/**
+ * Funcion a la que se le pasa un punto turistico y este lo guarda en el SheedDB
+ * 
+ * @param {Punto} punto  punto turistico on sus datos para ser subido al servidor de SheeDB
+ * @returns {boolean}  si tubo exito o no.
+ */
+
 export async function subirPuntoTuristico(punto){
   try {
     // const url = `https://sheetdb.io/api/v1/tv96lgxabh427`    // --- Cuenta de bdidomingueznegro
@@ -44,8 +51,9 @@ import { Usuario } from "./objetos.js";
 
 /**
  * Funcion que regresa un objeto con los registros que contengan un ID igual al pasado si por casualidad se crearn mas de 1 regresara todos pero solo mostrara el primero
- * @param {*} id  id del usuario
- * @returns   regresa con el usuario
+ * 
+ * @param {number} id  id del usuario
+ * @returns  {Usuario}  
  */
 export async function consultarUsuario(id){
   let resp = new Usuario;
@@ -82,8 +90,9 @@ export async function consultarUsuario(id){
 
 /**
  * Funcion que regresa un objeto con los registros que contengan un ID igual al pasado si por casualidad se crearn mas de 1 regresara todos pero solo mostrara el primero
- * @param {*} dni  dni del usuario
- * @returns   regresa con el usuario
+ * 
+ * @param {number} dni  dni del usuario
+ * @returns  {Usuario} regresa con el usuario
  */
 export async function consultarUsuarioDNI(dni){
   let resp = new Usuario;
@@ -121,9 +130,7 @@ export async function consultarUsuarioDNI(dni){
 
 
 /**
- *
- * @param {} id numerico
- * @id es el numero de usario de no tener -1 en dicho id se traeran todos
+ * Nos entrega una lista con todos los usuarios del servidor
  */
 export async function listarUsuarios() {
   let listaUsuarios = []
@@ -163,9 +170,10 @@ export async function listarUsuarios() {
 //   punto.agregarPunto(document.getElementById("index-contenedor-resultados"));
 
 /**
- * @param {*} usuario Clase Usuario
- *
- * para ser almacenada en el servidor SheetDB
+ * Funcion que sube un usuario a SheetDB
+ * 
+ * @param {Usuario} usuario intancia de un Usuario con los datos a persistir en el servidor SheetDB
+ * 
  */
 export async function subirUsuario(usuario) {
   //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=usuarios"; // bdidomingueznegro
@@ -216,6 +224,15 @@ export async function subirUsuario(usuario) {
 
 import { Punto } from "./objetos.js";
 
+
+
+/**
+ * Funcion para buscar en el servidor SheetDB todos los puntos que tengan coincidencia con el criterio de busqueda. una falla solo busca por 1 palabra no soporta conbinaciones tipo "jujuy + yala"
+ * eso es algo que tendremos que ver como corregir en un futuro pero creo que eso lo tendria que resolver el backend y no el frontend
+ *
+ * @param {string} filtro  palabra a buscar en los diferentes campos del punto
+ * @returns 
+ */
 export async function bajarPuntos(filtro) {
   //const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or"; // bdidomingueznegro
   const urlApi = "https://sheetdb.io/api/v1/m2snjn3r4siwv/search_or"; // ayaiten
@@ -236,57 +253,16 @@ export async function bajarPuntos(filtro) {
   return data;
 }
 
-/*
-export async function bajarPuntos(filtro) {
-  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427/search_or";
-  const palabrasFiltro = filtro.toLowerCase().trim().split(/\s+/); // Dividir el filtro en palabras individuales
-  const queryParams = palabrasFiltro.map(palabra => {
-    return [
-      `nombre=*${encodeURIComponent(palabra)}*`,
-      `provincia=*${encodeURIComponent(palabra)}*`,
-      `pais=*${encodeURIComponent(palabra)}*`,
-      `descripcion=*${encodeURIComponent(palabra)}*`,
-      `hospedajes=*${encodeURIComponent(palabra)}*`
-    ].join("&");
-  }).join("&");
-
-  const response = await fetch(`${urlApi}?${queryParams}`);
-  if (!response.ok) {
-    throw new Error("Error al obtener los datos");
-  }
-
-  const data = await response.json();
-  return data;
-}
-*/
-
-/*
-export async function bajarPuntos(filtro) {
-  const urlApi = "https://sheetdb.io/api/v1/tv96lgxabh427"; // Direccion para consultar el primer libro que tenga el endpoint
-  return fetch(urlApi)
-    .then((Response) => Response.json())
-    .then((data) => {
-      // filtramos los datos segun lo solicitado en el filtro
-      
-      const datosFiltrados = data.filter((obj) => {
-        return (
-          obj.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
-          obj.provincia.toLowerCase().includes(filtro.toLowerCase()) ||
-          obj.pais.toLowerCase().includes(filtro.toLowerCase()) ||
-          obj.descripcion.toLowerCase().includes(filtro.toLowerCase()) ||
-          obj.hospedajes.toLowerCase().includes(filtro.toLowerCase()) 
-        );
-      });
-      return datosFiltrados;
-    })
-    .catch((error) => {
-      console.error("Error al obtener los datos", error);
-    });
-}
-*/
 
 // Funcion que sube imagenes a un servidor de Imagenes https://imgbb.com/ key de la pagina fb47470933bd10712434f449f011599a
 // De la url borar el "expiration=600" ya que esto es un indicador de segundos que se almacenara la imagen antes de borrarla si la quitas las imagens quedan almacenadas para siempre dejar solo para pruebas XD
+
+/**
+ * Funcion que recibe un archivo de imagen y lo carga en https://imgbb.com/
+ * 
+ * @param {File} archivo archivo a ser subido
+ * @returns  [url, url_miniatura,estado]  regresa la ruta HTTP para ver la imagen en alta calidad (url) y una miniatura (url_miniatura) y un boolean en estado indicando con true si todo esta correcto o false si hubo un error
+ */
 export async function subirImagen(archivo) {
   const archivoImagen = archivo.target.files[0];
   const nombreArchivo = archivoImagen.name;
@@ -312,6 +288,13 @@ export async function subirImagen(archivo) {
 
 
 // ENVIAR NUEVO SUBSCRIPTOR
+
+/**
+ * Funcion que carga en SheedDB el correo del suscriptor
+ * 
+ * @param {string} correo correo del suscriptor tener en cuenta que no comprueba que sea un corre, sube lo que sea ademas de que le agrega un id y la fecha actual para que se carge en el registro como fecha de alta
+ * @returns  {boolean}  
+ */
 
 export async function subirSuscriptor(correo) {
   //const url = "https://sheetdb.io/api/v1/tv96lgxabh427?sheet=suscripcion"; // bdidomingueznegro
@@ -346,6 +329,13 @@ export async function subirSuscriptor(correo) {
 }
 
 // CONSULTANDO  SUBSCRIPTOR
+
+/**
+ * Funcion que retorna true si existe el correo que se adjunta o false de no encontrarlo, no comprueba que el correo tenga formato alguno.
+ * 
+ * @param {string} correo correo que se buscara en SheetDB
+ * @returns 
+ */
 
 export async function consultarSuscriptor(correo) {
   //const url = `https://sheetdb.io/api/v1/tv96lgxabh427/search?correo=${correo}&sheet=suscripcion`; // bdidominugez
@@ -382,7 +372,7 @@ export async function consultarSuscriptor(correo) {
   }
 
   /**
- * Cambia el cursor a 'wait' cuando se activa la animación de carga en un elemento.
+ * Cambia el cursor a 'wait' cuando se necesita una animación de carga en un elemento.
  * 
  * @param {string} nombreElemento - El ID del elemento cuyo cursor cambiará.
  * @param {boolean} accion - Indica si se debe activar (true) o desactivar (false) la animación.
@@ -427,6 +417,12 @@ export async function consultarSuscriptor(correo) {
     }
 
     // FUNCION DE CARGA DEL CORREO
+/**
+ * Funcion que se usa para controlar el suscribir del footer desde todas las paginas, controla que el correo esta correcto y que no exista ya en el servidor de cumplir las condiciones se carga y se informa al usuario.
+ * 
+ * @param {string} correo 
+ */
+
 export async function cargarSuscriptor(correo) {
   let re = /\S+@\S+\.\S+/; // Explecion regular para validar el correo no se como funciona Todavia XD
   if (re.test(correo)) {
